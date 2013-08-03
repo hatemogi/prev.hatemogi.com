@@ -1,0 +1,13 @@
+---
+pageable: true
+per_page: 10
+---
+
+.row
+  %ul.col-lg-8.col-12.col-offset-2
+    - blog.articles.each_with_index do |article, i| 
+      %li
+        = link_to article.title, article
+        %small= article.date.strftime('%Y-%m-%d') 
+
+
