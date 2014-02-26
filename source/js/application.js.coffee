@@ -31,8 +31,12 @@ setup_twitter_js = ->
   fjs = d.getElementsByTagName(s)[0]
   fjs.parentNode.insertBefore(js,fjs)
 
-$(setup_facebook_js)
+round_all_img = ->
+  $("img:not(img[class])").addClass('img-rounded')
+
+# $(setup_facebook_js)
 $(setup_twitter_js)
+$(round_all_img)
 
 unless window.location.hostname == '0.0.0.0'
   $(setup_google_analytics)

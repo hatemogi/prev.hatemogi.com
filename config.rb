@@ -65,7 +65,7 @@ activate :syntax
 
 activate :directory_indexes
 
-set :markdown_engine, :redcarpet
+set :markdown_engine, :kramdown
 set :markdown, fenced_code_blocks: true, smartypants: true, tables: true #, footnotes: true
 # set :markdown_engine, :kramdown
 
@@ -81,7 +81,7 @@ configure :build do
   activate :minify_css
 
   # Minify Javascript on build
-  activate :minify_javascript
+  # activate :minify_javascript
 
   # Enable cache buster
   # activate :cache_buster

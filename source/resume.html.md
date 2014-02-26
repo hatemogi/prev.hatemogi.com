@@ -4,7 +4,7 @@ title: 이력서
 updated_at: 2012-04-09
 ---
 
-## Profile 
+## 김대현 
 * 트위터: [@hatemogi](http://twitter.com/hatemogi)
 * 블로그: <http://hatemogi.com/>
 * GitHub: <https://github.com/hatemogi/>
@@ -12,16 +12,16 @@ updated_at: 2012-04-09
 * 하드웨어의 펌웨어 개발부터 스크립팅까지 넘나드는 시스템 엔지니어 
 
 ## Work Experiences
-* 2004.5 ~ 현재 : [Daum](http://info.daum.net/) 클라우드컴퓨팅팀
+* 2004.5 ~ 현재 : [Daum](http://info.daum.net/) 클라우드기술팀 팀장
   * 2009.3 ~ 2009.8 (6개월): 휴직
   * 2006.2 ~ 2007.6 (17개월): Daum 일본지사@Tokyo 파견근무, 시스템팀장 
-* 2000.1 ~ 2003.4 : [한국물류정보통신](http://www.klnet.co.kr/), 시스템엔지니어
+* 2000.1 ~ 2003.4 : [한국물류정보통신](http://www.klnet.co.kr/), 현역병역특례, 시스템엔지니어
 
 ## Education 
 * 2011, 고려대학교 국제어학원, 한국어교사양성과정 수료. 한달 안식휴가 활용. 
 * 2011, [Erlang Factory OTP Express](http://www.erlang-factory.com/conference/SFBay2011/university/optexpress) 교육과정 수료
 * 2008, 연세대학교 경영대학원, 연세-Daum MBA과정 수료. 주8시간 10주과정. 사내 선발인원 교육.
-* 2000, 홍익대학교 공과대학 컴퓨터공학과 졸업 
+* 2000, 홍익대학교 공과대학 컴퓨터공학과 졸업, 성적우수장학금 2회 수령
  
 ## Certificates 
 * 2000, Sun Certified Java Programmer (SCJP2)
@@ -46,7 +46,8 @@ updated_at: 2012-04-09
 
 
 ## Projects @Daum
-* 2012, VMWare CloudFoundry기반 PaaS 플랫폼 개발중
+* 2013, 사내 클라우드 DNS시스템, 애조로 개발PM
+* 2012, VMWare CloudFoundry기반 PaaS 플랫폼 개발
 * 2011, 사내 개발자용 github 서비스 개발 (Ruby, Sinatra, Redis, Riak, OpenSSH, Git, Bootstrap, Haml, CoffeeScript)
 * 2010, 클라우드 서비스, 파일동기화 프로토콜 설계, 구현 (Rsync, Java)
 * 2010, 마이피플 아키텍쳐 설계, 초기 개발 (Objective-C)
@@ -59,13 +60,13 @@ updated_at: 2012-04-09
  
 ## Projects @home
 * 2011, [코드 한페이지짜리 HTTP 프록시 서버 개발](https://github.com/hatemogi/em_http_proxy)
-* 2011, [Google Codejam 2011 참가, 5개 언어로 코딩](http://www.go-hero.net/jam/11/multilang)
+* 2011, [Google Codejam 2011 참가, 5개 언어로 코딩](http://www.go-hero.net/jam/11/multilang), 해당분야 전세계 11위. ^^;
 * 2011, [Google Codejam 연습문제, 9개 언어로 풀기](https://github.com/hatemogi/gcj_practice/tree/master/store_credit)
 * 2010, [iPhone으로 R/C 자동차를 제어하는 임베디드 시스템 개발](http://hatemogi.com/embedded_fun_1/)
 * 2010, [Xkobo for OSX](http://osxkobo.appspot.com/) 포팅
 * 1997, [Xkobo 게임 포팅](http://blog.hatemogi.com/5) (C on X-Windows → Object Pascal on Win32) 
 * 1995, 3인용 테트리스 게임 개발, 월간 마이크로소프트웨어(95년 5월호 180p)에 소개됨, 직접 개발한 그래픽 라이브러리 활용.
-* 1993, Turbo Pascal용 SVGA 그래픽, 한글 출력 라이브러리 개발, 인라인 어셈블리 포함 13,000 라인 규모
+* 1993, Turbo Pascal용 SVGA 그래픽, 한글 출력 라이브러리 개발, 인라인 어셈블리 포함 13,000 라인 규모, 하이텔 프로그래밍 동호회 '두루물'에 공개.
 * 1992, MS-DOS 부팅 잠금 프로그램 개발 (Turbo Pascal)
 
 ## Attended Technical Conferences 

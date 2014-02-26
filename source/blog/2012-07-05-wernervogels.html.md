@@ -47,6 +47,7 @@ DynamoDB에 대한 청중의 질문중, 트랜잭션처리에 관한 것이 있�
 그러자, 사인하시길 망설이는듯 잠깐 기다리라고 하시더군요. 알고보니, 어떤 글귀(?)를 적어줄지 고심하신거더군요.
 
 ![autographing](http://farm9.staticflickr.com/8019/7278664350_ccee28ab35_n.jpg)
+
 ![the paper](http://farm8.staticflickr.com/7088/7278660206_1413261891.jpg)
 
 코팅해서 보관해야겠습니다. 

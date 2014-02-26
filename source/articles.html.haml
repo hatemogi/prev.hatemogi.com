@@ -3,11 +3,29 @@ pageable: true
 per_page: 10
 ---
 
-.row
-  %ul.col-lg-8.col-12.col-offset-2
-    - blog.articles.each_with_index do |article, i| 
-      %li
-        = link_to article.title, article
-        %small= article.date.strftime('%Y-%m-%d') 
+
+%h3 Medium
+%ul
+  %li
+    %a(href="https://medium.com/simplify-life/33ca52257198") 뉴스끊기
+  %li
+    %a(href="https://medium.com/korean-medium-post/2ebb12e87841") “오륜서”에서 읽는 ‘개발의 道’ 9가지 
 
 
+%h3 블로그
+%ul
+  - blog.articles.each_with_index do |article, i| 
+    %li
+      = link_to article.title, article
+      %small= article.date.strftime('%Y-%m-%d') 
+
+
+%h3 발표자료
+<iframe src="http://www.slideshare.net/slideshow/embed_code/27626208" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px">
+<a href="https://www.slideshare.net/hatemogi/devon2013-git" title="devon2013: 사내Git저장소개발사례" target="_blank">devon2013: 사내Git저장소개발사례</a> </strong> from <strong><a href="http://www.slideshare.net/hatemogi" target="_blank">Daehyun Kim</a></strong> </div>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/25043305" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/hatemogi/tlnr" title="TLNR" target="_blank">TLNR</a> </strong> from <strong><a href="http://www.slideshare.net/hatemogi" target="_blank">Daehyun Kim</a></strong> </div>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/24405679" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/hatemogi/2013-24405679" title="클라우드기술팀 2013년하반기계획" target="_blank">클라우드기술팀 2013년하반기계획</a> </strong> from <strong><a href="http://www.slideshare.net/hatemogi" target="_blank">Daehyun Kim</a></strong> </div>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/14677064" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/hatemogi/aws-14677064" title="AWS 콘서트" target="_blank">AWS 콘서트</a> </strong> from <strong><a href="http://www.slideshare.net/hatemogi" target="_blank">Daehyun Kim</a></strong> </div>
