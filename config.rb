@@ -65,7 +65,7 @@ activate :syntax
 
 activate :directory_indexes
 
-set :markdown_engine, :kramdown
+set :markdown_engine, :rdiscount
 set :markdown, fenced_code_blocks: true, smartypants: true, tables: true #, footnotes: true
 # set :markdown_engine, :kramdown
 

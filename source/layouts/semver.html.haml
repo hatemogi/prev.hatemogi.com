@@ -1,0 +1,25 @@
+!!! 5
+%head
+  %meta(charset='utf-8')
+  %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  %title= current_page.data.title
+  %link(rel="stylesheet" type="text/css" href="/css/application.css")
+  %style
+    :plain
+      h2 { 
+        padding-bottom: 10px;
+        font-size: 1.8em;
+        font-weight: bold;
+        text-align: center;
+      }
+      h3 { font-size: 1.5em;}
+%body
+  .container
+    .header
+      %ul.nav.nav-pills.pull-right
+        %li
+          %a(href="http://semver.org") 원문@semver.org
+      %h1
+        = current_page.data.title
+  %section#main-content
+    .container~ yield

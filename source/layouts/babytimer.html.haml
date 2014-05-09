@@ -1,0 +1,26 @@
+!!! 5
+%head
+  %meta(charset='utf-8')
+  %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  %title= current_page.data.title
+  %link(rel="stylesheet" type="text/css" href="/css/application.css")
+  %link(rel="shortcut icon" href="/img/favicon.png")
+%body
+  .container
+    .header
+      %ul.nav.nav-pills.pull-right
+        %li
+          %a(href="/") Home
+        %li
+          %a(href="/about/") Developer
+      %h3.text-muted 
+        = current_page.data.title
+        for iPhone, or iPad
+  %section#main-content
+    .container~ yield
+  .container
+    %footer
+      .pull-right
+        &copy; 2014 
+        %a(href="https://twitter.com/hatemogi") @hatemogi            
+  %script(src="/js/application.js" type="text/javascript")
