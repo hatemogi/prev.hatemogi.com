@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+  <meta charset='utf-8'>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <title>프로그래밍의 재미: 30일 프로젝트 - 사흘</title>
+  <link href='/css/application.css' rel='stylesheet' type='text/css'>
+  <link href='/img/favicon.png' rel='shortcut icon'>
+</head>
+<body>
+  <div class='container'>
+    <div class='header'>
+      <ul class='nav nav-pills pull-right'>
+        <li>
+          <a href='/'>홈</a>
+        </li>
+        <li>
+          <a href='/articles/'>글</a>
+        </li>
+        <li>
+          <a href='/about/'>소개</a>
+        </li>
+      </ul>
+      <h3 class='text-muted'>hatemogi.com</h3>
+    </div>
+  </div>
+  <section id='main-content'>
+    <div class='container'>
+      <div class='page-header'>
+        <h2>
+          30일 프로젝트 - 사흘
+          <small>2014-05-09</small>
+        </h2>
+      </div>
+      <p>나는 30일간의 안식휴가 중이다. 30일의 휴가동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 사흘째다.</p>
+      
+      <p><a href="/holiday-project-day-01/">첫날</a>과 <a href="/holiday-project-day-02/">어제</a>는, 클라이언트 측과 서버사이드에서의 자바스크립트 테스팅 환경을 구축했다. 한가지 더 테스트를 위해 고려할만한 사항이 있다면, 이것을 유닛테스트라고 부르든 통합테스트라고 부르든, <a href="http://expressjs.com/">express</a>로 제공할 HTTP 요청에 대한 테스트 환경도 준비해보고자 한다. 일일이 HTTP요청을 별도로 보내 보는 것이 아니라, 가짜(mock) 요청을 테스팅 프레임워크 수준에서 보내보고 결과를 확인하는 일이다.</p>
+      
+      <p>express의 모태인 Ruby <a href="http://www.sinatrarb.com/testing.html">Sinatra의 경우 Rack::Test를 사용해서 했던 일</a>이다. express 사이트에 테스트는 어떻게 하는 지 설명이 있을 거라고 예상했는데, 아쉽게도 찾지 못했다. 프레임워크나 사이트의 철학이 최소한의 기능과 설명을 추구하고 있는 듯하고, HTTP요청 수준의 테스팅은 고려하고 있지 않나보다. 아니면, 알아서 잘 찾아쓰라는 마인드인가?</p>
+      
+      <p>하는 수 없이, 구글링을 조금 해보니, 별도로 <a href="https://github.com/visionmedia/supertest">supertest</a>라고 잘 준비된 프레임워크가 있었다. <a href="https://github.com/visionmedia/supertest#readme">README</a>문서를 훑어보니 한눈에 쏙 들어오는 예제코드가 마음에 띄었다.</p>
+      
+      <p>OK, 더 찾아보지 않고 이 것으로 낙찰!</p>
+      
+      <p><a href="https://github.com/expressjs/generator">express-generator</a>로 만든 <a href="https://github.com/hatemogi/karma-practice">연습 프로젝트</a>의 <a href="https://github.com/hatemogi/karma-practice/blob/master/app.js">app.js</a>에 해당 테스트 코드를 붙여보았다.</p>
+      
+      <h3>express 기본 템플릿</h3>
+      
+      <p>테스트할 소스는 app.js에서 결국 읽어들이는 <a href="https://github.com/hatemogi/karma-practice/blob/master/routes/index.js">routes/index.js</a>파일이고, 내용은 아래와 같다.</p>
+      
+      <pre><code class="javascript">var express = require('express');&#x000A;var router = express.Router();&#x000A;&#x000A;/* GET home page. */&#x000A;router.get('/', function(req, res) {&#x000A;  res.render('index', { title: 'Express' });&#x000A;});&#x000A;&#x000A;module.exports = router;&#x000A;</code></pre>
+      
+      <p>중간의 3줄이 핵심인데, <code>GET /</code>요청이 왔을 때, <code>index</code>템플릿을 렌더링 할 것이며, <code>title</code>에는 <code>Express</code>라는 값을 바인딩 해서 하겠다는 뜻이다. 렌러링하고자하는 뷰 템플릿은 <code>views/index.jade</code>파일을 읽어서 처리하며, 그 내용은 아래와 같다.</p>
+      
+      <pre><code class="jade">extends layout&#x000A;&#x000A;block content&#x000A;  h1= title&#x000A;  p Welcome to #{title}&#x000A;</code></pre>
+      
+      <p>이 <a href="http://jade-lang.com/">jade</a>파일이 html로 변환돼 출력되고, 그 때 title변수에는 <code>Express</code>가 들어있다. 여기까지는 [express-generator]로 기본 생성한 코드이고, 여기서부터 추가로 테스트 코드를 작성했다.</p>
+      
+      <h3><code>GET /</code> 테스트코드 추가</h3>
+      
+      <pre><code>npm install supertest --save-dev&#x000A;</code></pre>
+      
+      <p>위와같이 <a href="https://github.com/visionmedia/supertest">supertest</a>를 현재 프로젝트에 설치했다. (참고로 <code>--save-dev</code>옵션을 지정하면, 현재 프로젝트의 <code>package.json</code>에 devDependencies에 해당 모듈이 자동 추가된다.)</p>
+      
+      <h4><a href="https://github.com/hatemogi/karma-practice/blob/master/spec/app_spec.js">spec/app_spec.js</a></h4>
+      
+      <pre><code class="javascript">var app = require('../app');&#x000A;var request = require('supertest')&#x000A;&#x000A;describe('express 앱', function() {&#x000A;  it('GET /', function(done) {&#x000A;    request(app)&#x000A;      .get('/')&#x000A;      .expect('Content-Type', /html/)&#x000A;      .expect(200)&#x000A;      .expect(/Express/)&#x000A;      .end(function (err, res) {&#x000A;        if (err) done(err);&#x000A;        done();&#x000A;      });&#x000A;  });&#x000A;});&#x000A;</code></pre>
+      
+      <p>supertest에 준비된 메소드 <code>request</code>로 가짜 (1)<code>get('/')</code>요청을 보내보고, 그 결과로 (2)<code>Content-Type</code>헤더에는 <code>html</code>이 들어있는지, (3)결과 HTTP Status Code는 <code>200</code>이 잘 찍혔는지, (4)응답본문(response body)에는 <code>Express</code>라는 문구가 잘 들어있느지 확인한 뒤, 에러 여부에 따라 <code>done()</code>이나 <code>done(err)</code>를 호출해서 jasmine이 테스트코드 성패여부를 알 수 있게 한다.</p>
+      
+      <p>이렇게해서 <code>jasmine-node</code>로 테스트를 돌려본 결과는 아래와 같다.</p>
+      
+      <pre><code>$ jasmine-node --verbose spec&#x000A;GET / 200 188ms - 170b&#x000A;&#x000A;express 앱 - 218 ms&#x000A;    GET / - 218 ms&#x000A;&#x000A;자스민 써보기 - 1 ms&#x000A;    contains text property - 1 ms&#x000A;&#x000A;Finished in 0.221 seconds&#x000A;2 tests, 1 assertion, 0 failures, 0 skipped&#x000A;</code></pre>
+      
+      <p><a href="/holiday-project-day-02/">어제</a> 작성한 <code>자스민 써보기</code> 테스트케이스도 문제 없이 잘 돌았고, 오늘 작성한 <code>express 앱의 GET /</code>테스트케이스 또한 문제없이 통과 했다.</p>
+      
+      <p>참고로, 작성하는 예제 프로젝트는</p>
+      
+      <blockquote><p><a href="https://github.com/hatemogi/karma-practice">https://github.com/hatemogi/karma-practice</a></p></blockquote>
+      
+      <p>에 올려 놓고 있다.</p>
+      
+      <p>오늘은 여기까지, 모두 행복한 불금 되시길.</p>
+    </div>
+  </section>
+  <div class='container'>
+    <footer>
+      <div class='pull-right'>
+        &copy; 2012-2014
+        <a href='https://twitter.com/hatemogi'>@hatemogi</a>
+      </div>
+    </footer>
+  </div>
+  <script src='/js/application.js' type='text/javascript'></script>
+</body>
