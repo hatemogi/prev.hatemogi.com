@@ -11112,7 +11112,9 @@ var hljs=new function(){function k(v){return v.replace(/&/gm,"&amp;").replace(/<
 
   highlight_code = function() {
     return $('pre').has('code').each(function(i, e) {
-      $(this).addClass("lang-" + $(this).children('code')[0].className);
+      var lang;
+      lang = $(this).children('code')[0].className;
+      $(this).addClass(lang === "no-highlight" ? lang : "lang-" + lang);
       return hljs.highlightBlock(e);
     });
   };
