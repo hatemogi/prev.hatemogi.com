@@ -63,7 +63,7 @@
       
       <p>어쨌건 위의 명령어로, 그전까지의 테스트케이스와 함께 돌려 볼 수 없고, 문제없이 실행되는 것을 확인했다.</p>
       
-      <p>혹시, <a href="http://cofffescript.org">커피스크립트</a>로 작성해보면 조금 보기에 나아질까 하는 궁금증이 일어, 곧바로 작성해봤다.</p>
+      <p>혹시, <a href="http://coffeescript.org">커피스크립트</a>로 작성해보면 조금 보기에 나아질까 하는 궁금증이 일어, 곧바로 작성해봤다.</p>
       
       <pre><code class="coffeescript">describe '[CoffeeScript] nodegit 저장소', () -&gt;&#x000A;  Repo = require("nodegit").Repo&#x000A;&#x000A;  it '열어서 커밋 찾아보기', (done) -&gt;&#x000A;    Repo.open "git/nodegit", (err, repo) -&gt;&#x000A;      return done(err) if err&#x000A;      expect(repo.path()).toMatch /\.git\/$/&#x000A;      sha = "e9ec116a8fb2ea051a4c2d46cba637b3fba30575"&#x000A;      repo.getCommit sha, (err, entry) -&gt;&#x000A;        return done(err) if err&#x000A;        expect(entry.sha()).toEqual sha    &#x000A;    done()&#x000A;</code></pre>
       
