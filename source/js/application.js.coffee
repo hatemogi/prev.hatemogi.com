@@ -34,9 +34,17 @@ setup_twitter_js = ->
 round_all_img = ->
   $("img:not(img[class])").addClass('img-rounded')
 
+highlight_code = ->
+  $('pre').has('code').each (i, e) ->
+    lang = $(this).children('code')[0].className
+    $(this).addClass(if lang == "no-highlight" then lang else "lang-#{lang}")
+    hljs.highlightBlock(e)
+
 # $(setup_facebook_js)
-$(setup_twitter_js)
+# $(setup_twitter_js)
 $(round_all_img)
+$(highlight_code)
 
 unless window.location.hostname == '0.0.0.0'
   $(setup_google_analytics)
+

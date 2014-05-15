@@ -1,0 +1,7 @@
+= wrap_layout(:article) do 
+  ~ yield
+  .page-header
+    %h4
+      30일 프로젝트 글 목록
+  %blockquote~ render(:markdown, 'holiday-project-list.md')
+

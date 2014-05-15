@@ -1,8 +1,8 @@
 ---
-title: '30일 프로젝트 - 둘째날'
+title: '프로젝트 2일: 서버 측 JS 테스트 환경'
 kind: article
 created_at: 2014-05-08
-layout: article
+layout: holiday-project
 ---
 
 나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 둘째 날이다. 

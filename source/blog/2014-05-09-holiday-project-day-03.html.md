@@ -1,8 +1,8 @@
 ---
-title: '30일 프로젝트 - 사흘'
+title: '프로젝트 3일: express 테스트 환경 - supertest'
 kind: article
 created_at: 2014-05-09
-layout: article
+layout: holiday-project
 ---
 
 나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 사흘째다. 
@@ -48,7 +48,7 @@ block content
 
 ### ```GET /``` 테스트코드 추가
 
-```
+```bash
 npm install supertest --save-dev
 ```
 
@@ -79,7 +79,7 @@ supertest에 준비된 메소드 ```request```로 가짜 (1) ```get('/')``` 요�
 
 이렇게 해서 ```jasmine-node```로 테스트를 돌려본 결과는 아래와 같다.
 
-```
+```bash
 $ jasmine-node --verbose spec
 GET / 200 188ms - 170b
 

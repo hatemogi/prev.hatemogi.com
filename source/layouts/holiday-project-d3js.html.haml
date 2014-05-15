@@ -1,0 +1,12 @@
+= wrap_layout(:d3js) do 
+  .page-header
+    %h2
+      = current_page.data.title
+      %small= current_page.data.created_at
+  ~ yield
+  .page-header
+    %h4
+      30일 프로젝트 글 목록
+  %blockquote~ render(:markdown, 'holiday-project-list.md')
+
+  
