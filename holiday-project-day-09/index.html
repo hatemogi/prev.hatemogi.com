@@ -47,7 +47,7 @@
       
       <h2><a href="http://www.nodegit.org/">nodegit</a></h2>
       
-      <p>오후에는 바닷가에 잠시 놀러 갔다 왔고(휴가중이니까!), 밤이 돼서야 <a href="http://www.nodegit.org/">nodegit</a>을 연습해보기 시작했다. <a href="http://www.nodegit.org/">nodegit</a>은 node.js용 Git 라이브러리인데 내부적으로 C로 작성된 <a href="http://libgit2.github.com/">libgit2</a>를 사용한다. Git 라이브러리의 갑인 libgit2 사이트에 보면, Node.js용 바인딩으로는 <a href="https://github.com/libgit2/node-gitteh">다른 라이브러리</a>가 참조돼있는데, 해당 라이브러리 사이트에 가보면, 최근 활동이 활발하지 않고 <a href="https://github.com/libgit2/node-gitteh/issues/68">새로운 소유자를 찾고 있다</a>. 따라서, 지금은 node.js용 라이브러리로는 <a href="http://www.nodegit.org/">nodegit</a>이 쓸만한 상황으로 보인다.</p>
+      <p>오후에는 바닷가에 잠시 놀러 갔다 왔고(휴가중이니까!), 밤이 돼서야 <a href="http://www.nodegit.org/">nodegit</a>을 연습해보기 시작했다. <a href="http://www.nodegit.org/">nodegit</a>은 node.js용 Git 라이브러리인데 내부적으로 C로 작성된 <a href="http://libgit2.github.com/">libgit2</a>를 사용한다. &lsquo;Git 라이브러리의 갑'인 libgit2 사이트에 보면, Node.js용 바인딩으로는 <a href="https://github.com/libgit2/node-gitteh">다른 라이브러리</a>가 참조돼있는데, 해당 라이브러리 사이트에 가보면, 최근 활동이 활발하지 않고 <a href="https://github.com/libgit2/node-gitteh/issues/68">새로운 소유자를 찾고 있다</a>. 따라서, 지금은 node.js용 라이브러리로는 <a href="http://www.nodegit.org/">nodegit</a>이 쓸만한 상황으로 보인다.</p>
       
       <p>루비에서 Git 저장소 관련 작업을 할 때, 순수 루비로 짠 <a href="https://github.com/mojombo/grit">Grit</a>도 써보고, 네이티브 libgit2를 바인딩한 <a href="https://github.com/libgit2/rugged">Rugged</a>도 써봤다. Grit은 후에 유지보수가 되지 않았고, Rugged는 초기 버전을 쓸 때는 툭하면 Segmentation Fault를 떨어뜨렸다. 물론 지금의 Rugged는 매우 훌륭해서 문제 될 것이 없다. 하지만, nodegit은 아직 초기 버전이라, Rugged의 초기 버전 때처럼 SegFault를 만나게 될까 걱정이 앞서지만, 현재는 다른 대안이 없는 것 같다.</p>
       
@@ -63,11 +63,11 @@
       
       <p>어쨌건 위의 명령어로, 그전까지의 테스트케이스와 함께 돌려 볼 수 없고, 문제없이 실행되는 것을 확인했다.</p>
       
-      <p>혹시, <a href="http://cofffescript.org">커피스크립트</a>로 작성해보면 조금 나아질까 하는 궁금증이 일어, 곧바로 작성해봤다.</p>
+      <p>혹시, <a href="http://cofffescript.org">커피스크립트</a>로 작성해보면 조금 보기에 나아질까 하는 궁금증이 일어, 곧바로 작성해봤다.</p>
       
       <pre><code class="coffeescript">describe '[CoffeeScript] nodegit 저장소', () -&gt;&#x000A;  Repo = require("nodegit").Repo&#x000A;&#x000A;  it '열어서 커밋 찾아보기', (done) -&gt;&#x000A;    Repo.open "git/nodegit", (err, repo) -&gt;&#x000A;      return done(err) if err&#x000A;      expect(repo.path()).toMatch /\.git\/$/&#x000A;      sha = "e9ec116a8fb2ea051a4c2d46cba637b3fba30575"&#x000A;      repo.getCommit sha, (err, entry) -&gt;&#x000A;        return done(err) if err&#x000A;        expect(entry.sha()).toEqual sha    &#x000A;    done()&#x000A;</code></pre>
       
-      <p>똑같은 테스트를 하는 커피스크립트 코드인데, 코드 줄 수는 짧아졌지만, 여전히 뭔가 불편한 것이&hellip; 아직 콜백 스타일에 익숙치 않은 것 같다.</p>
+      <p>똑같은 테스트를 하는 커피스크립트 코드인데, 코드 줄 수는 짧아졌지만, 여전히 뭔가 불편한 것이&hellip; 그냥 아직 콜백이 자꾸 겹치는 스타일에 익숙치 않은 것 같다.</p>
       
       <pre><code class="bash">jasmine-node --verbose --coffee spec&#x000A;</code></pre>
       
@@ -75,7 +75,7 @@
       
       <p>몇 달 전쯤에, 회사에서 누군가 이런 콜백 폭포수 코딩의 불편함을 하소연하는 걸 옆에서 들었는데, 다른 옆사람 말이, 또 그런 걸 해결해주는 라이브러리가 있다고 했다. 그때야 관심이 없어서 더 묻지도 않았는데, 이제야 새삼 궁금해지니, 나중에 출근하면 한번 확인해보려 한다.</p>
       
-      <p>그때까지는 일단 저 콜백스타일에 좀 적응해보자.</p>
+      <p>그때까지는 일단 저 콜백 스타일에 좀 적응해보자.</p>
       
       <p>오늘은 여기까지.</p>
       <div class='page-header'>
