@@ -80,12 +80,15 @@
         }
       </style>
       <section class='button-section'>
-        <button class='btn btn-primary btn-lg'>어디 한번 봅시다!</button>
+        <button class='btn btn-primary btn-lg show-button'>어디 한번 봅시다!</button>
         이 버튼을 누르면, 오늘 그린 그림이 보인다.
       </section>
       <div class='graph-section hide'>
         <h3>어떤 Git 저장소의 master 브랜치에 있는 커밋들</h3>
         <svg class='d3'></svg>
+        <p>
+          <button class='btn btn-warning resume-button'>흔들어봅시다!</button>
+        </p>
         <div class='panel panel-info'>
           <div class='panel-heading'>
             원을 클릭해 보세요.
@@ -179,11 +182,15 @@
           });
         });
         
-        $('.button-section .btn').on('click', function() {
+        $('.show-button').on('click', function() {
           $(this.parentNode).hide();
           $('.graph-section').removeClass('hide').show(function() {
             force.start();
           });
+        });
+        
+        $('.resume-button').on('click', function() {
+          force.alpha(0.5);
         });
       </script>
       <div class='page-header'>
