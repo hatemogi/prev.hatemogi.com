@@ -1,329 +1,334 @@
 <!DOCTYPE html>
-<head>
-  <meta charset='utf-8'>
-  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-  <title>프로그래밍의 재미</title>
-  <link href='/css/application.css' rel='stylesheet' type='text/css'>
-  <link href='/css/highlight/tomorrow.css' rel='stylesheet' type='text/css'>
-  <link href='/img/favicon.png' rel='shortcut icon'>
-</head>
-<body>
-  <div class='container'>
-    <div class='header'>
-      <ul class='nav nav-pills pull-right'>
-        <li>
-          <a href='/'>홈</a>
-        </li>
-        <li>
-          <a href='/articles/'>글</a>
-        </li>
-        <li>
-          <a href='/show-your-work/'>작업</a>
-        </li>
-        <li>
-          <a href='/about/'>소개</a>
-        </li>
-      </ul>
-      <h3 class='text-muted'>hatemogi.com</h3>
-    </div>
-  </div>
-  <section id='main-content'>
+<html prefix='og: http://ogp.me/ns#'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta content='프로그래밍의 재미' property='og:title'>
+    <meta content='website' property='og:type'>
+    <meta content='https://avatars2.githubusercontent.com/u/238582?s=200' property='og:image'>
+    <title>프로그래밍의 재미</title>
+    <link href='/css/application.css' rel='stylesheet' type='text/css'>
+    <link href='/css/highlight/tomorrow.css' rel='stylesheet' type='text/css'>
+    <link href='/img/favicon.png' rel='shortcut icon'>
+  </head>
+  <body>
     <div class='container'>
-      <div class='about-me'>
-        <div class='row'>
-          <div class='col-md-3 col-lg-3 col-xs-4'>
-            <img class='img-rounded img-responsive pull-right' src='http://www.gravatar.com/avatar/3605adfa6ad53881e7aba94bc20e58ee.png?s=256' style='width:128px; height: auto;'>
-          </div>
-          <div class='col-md-9 col-lg-9 col-xs-8'>
-            <p><a href="https://twitter.com/hatemogi">김대현</a>은 다음커뮤니케이션에서 근무하는 소프트웨어 개발자입니다. 2005년부터 <a href="http://cafe.daum.net">Daum 카페</a>, <a href="http://calendar.daum.net">Daum 캘린더</a>, <a href="https://mypeople.daum.net">마이피플</a>등의 웹서비스, 프론트엔드 웹애플리케이션, iOS 모바일앱 개발에 두루 참여했으며, 사내 개발자를 위한 Git저장소 서비스를 직접 구축하여 서비스하는 등, Java/C/Ruby/Node 기반의 다양한 백엔드 시스템을 개발하고 운영했습니다. 2014년 현재는 <a href="http://www.bloter.net/archives/187993">제주 다음스페이스.2</a>에 근무하며 클라우드기술팀의 팀장직을 맡고 있습니다.</p>
-            
-            <p>개인적으로 Ruby, Erlang, Scala등의 프로그래밍 언어에 관심이 많고, 기술적 흥미를 바탕으로 실용적인 가치를 만들어 내는 일을 추구합니다. 직업도 개발이고 취미도 개발입니다.</p>
+      <div class='header'>
+        <ul class='nav nav-pills pull-right'>
+          <li>
+            <a href='/'>홈</a>
+          </li>
+          <li>
+            <a href='/articles/'>글</a>
+          </li>
+          <li>
+            <a href='/show-your-work/'>작업</a>
+          </li>
+          <li>
+            <a href='/about/'>소개</a>
+          </li>
+        </ul>
+        <h3 class='text-muted'>hatemogi.com</h3>
+      </div>
+    </div>
+    <section id='main-content'>
+      <div class='container'>
+        <div class='about-me'>
+          <div class='row'>
+            <div class='col-md-3 col-lg-3 col-xs-4'>
+              <img class='img-rounded img-responsive pull-right' src='http://www.gravatar.com/avatar/3605adfa6ad53881e7aba94bc20e58ee.png?s=256' style='width:128px; height: auto;'>
+            </div>
+            <div class='col-md-9 col-lg-9 col-xs-8'>
+              <p><a href="https://twitter.com/hatemogi">김대현</a>은 다음커뮤니케이션에서 근무하는 소프트웨어 개발자입니다. 2005년부터 <a href="http://cafe.daum.net">Daum 카페</a>, <a href="http://calendar.daum.net">Daum 캘린더</a>, <a href="https://mypeople.daum.net">마이피플</a>등의 웹서비스, 프론트엔드 웹애플리케이션, iOS 모바일앱 개발에 두루 참여했으며, 사내 개발자를 위한 Git저장소 서비스를 직접 구축하여 서비스하는 등, Java/C/Ruby/Node 기반의 다양한 백엔드 시스템을 개발하고 운영했습니다. 2014년 현재는 <a href="http://www.bloter.net/archives/187993">제주 다음스페이스.2</a>에 근무하며 클라우드기술팀의 팀장직을 맡고 있습니다.</p>
+              
+              <p>개인적으로 Ruby, Erlang, Scala등의 프로그래밍 언어에 관심이 많고, 기술적 흥미를 바탕으로 실용적인 가치를 만들어 내는 일을 추구합니다. 직업도 개발이고 취미도 개발입니다.</p>
+            </div>
           </div>
         </div>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-11/">프로젝트 11일: Git 커밋 그래프 그리기 도전</a>
+            <small>2014-05-17</small>
+          </h1>
+        </div>
+        <p>나는 30일 동안 휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있다.</p>
+        
+        <h3>
+        <a href="http://d3js.org">D3.js</a>의 Layout 기능</h3>
+        
+        <p>오늘 새벽 5시쯤 일찍 잠에서 깼는데 다시 잠이 오지 않아, 침대에 누운 채로 <a href="http://d3js.org">D3.js</a> 문서를 좀 읽었다. <a href="https://github.com/mbostock/d3/wiki/Force-Layout">Force Layout</a> 부분을 보아하니, 원래 계획하던 그래프를 그리는 데에 사용할 수 있을 것 같은 느낌이 왔다. 문서를 마저 읽고, 설레는 마음을 품고, 책상에 앉아서 코딩을 시작했고, 잠깐의 몰입 후에 기본 코드가 완성됐다. 개발이 즐거운 이유는, 몰입(flow)의 경험이 가장 크지 않나 싶다. 피드백...</p>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-11/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-10/">프로젝트 10일: Async.js로 콜백 중첩을 풀기</a>
+            <small>2014-05-16</small>
+          </h1>
+        </div>
+        <p>나는 30일의 휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 열흘째다.</p>
+        
+        <h2><a href="https://github.com/caolan/async">Async.js</a></h2>
+        
+        <p><a href="/holiday-project-day-09/">어제 Node.js로 Git 저장소의 커밋 오브젝트를 찾아보면서, 콜백 폭포에 대한 어색함을 토로했다.</a> 출근하면, 회사 동료들에게 관련 내용을 물어보려 했는데, 오늘 마침 회사에 잠깐 들를 일이 있었다. 딸내미 100일 떡을 돌리라는 명(?)을 받들어 회사에 가서 막 쪄온 떡을  돌리고, 오랜만에 본 팀원 분들과 얘기를 나누며 관련 문의를 했고, 곧바로 속 시원하게 들은 해결안은 <a href="https://github.com/caolan/async">Async.js</a>를 사용해보라는 ...</p>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-10/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-09/">프로젝트 9일: Node.js로 Git저장소 다루기</a>
+            <small>2014-05-15</small>
+          </h1>
+        </div>
+        <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 9일째다.</p>
+        
+        <h2><a href="https://developer.github.com/v3/">GitHub API</a></h2>
+        
+        <p>오전에, <a href="https://developer.github.com/guides/getting-started/">GitHub API: Getting Started</a>를 비롯해, API 설명서를 읽었다. 프로젝트에서 사용할 기능을 깃헙이 제공하는 API를 써서 구현 가능한지 판단하는 것이 주요목표였고, 결론을 먼저 말하면, 당연히 사용할 수 있었다. 문제없이 진행할 수 있겠다.</p>
+        
+        <p>살펴보면서 느낀 점은 “깃헙 개발자 API 설명이 참 잘 돼있다"는 것이다. 눈으로 쭉 읽기만 해도 어떻게 돌아갈지 잘 와 닿았고,...</p>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-09/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-08/">프로젝트 8일: D3.js 트랜지션(Transitions)</a>
+            <small>2014-05-14</small>
+          </h1>
+        </div>
+        <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있다.</p>
+        
+        <p><a href="/holiday-project-day-07/">어제</a>와 오늘, <a href="https://github.com/mbostock/d3/wiki/API-Reference">D3.js API 레퍼런스</a>의 <a href="https://github.com/mbostock/d3/wiki/Selections">Selections</a> 부분과 <a href="https://github.com/mbostock/d3/wiki/Transitions">Transitions</a> 부분을 읽었다. <a href="/holiday-project-day-06/">그제</a> 처음으로 <a href="http://d3js.org/">D3.js</a>를 연습해보며 대충만 추측하고 넘어갔던 부분들이 조금은 더 이해가 되기 시작했다. <a href="https://github.com/mbostock/d3/wiki/Selections">Selections</a>의 한쪽에, <code>selection#data()</code> 함수를 설명하는 부분에 데이터 바인딩과 관련해서 소개된 글, <a href="http://bost.ocks.org/mike/join/">Thinking With Joins</a>도 읽어보게 됐는데, 본문에 아래와 같은 내용이 있었다.</p>
+        
+        <blockquote><p>Here’s the deal...</p></blockquote>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-08/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-07/">프로젝트 7일:  graphviz 노드에 웹 링크 걸기</a>
+            <small>2014-05-13</small>
+          </h1>
+        </div>
+        <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있다.</p>
+        
+        <p>원래는 <a href="/holiday-project-day-06/">어제</a> 해결하려다, 다른 주제 <a href="http://d3js.org/">D3.js</a>에 마음을 빼앗겨 해결하지 못했던 문제로 돌아왔다.</p>
+        
+        <blockquote><p><a href="http://www.graphviz.org/">graphviz</a>의 노드에 웹 링크(href)를 걸기</p></blockquote>
+        
+        <p>찾아보니 싱겁게도, <a href="http://www.graphviz.org/content/attrs#dhref">설명서의 각종 속성을 지정하는 부분에 너무도 간단히, 그것도 아주 뻔한 <code>href</code>라는 속성으로 지정할 수 있다</a>고 쓰여있었다. 지정할 수 있는 속성이 너무 많아서 일일이 살펴보기 어렵다는 점이 있다고 핑계를 대고 싶지만, 아, 너무도 뻔한 속성값이다.</p>
+        
+        <p>어쨌든, 한번 연습 삼아서...</p>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-07/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-06/">프로젝트 6일: 그래프 그리기 - graphviz & D3.js</a>
+            <small>2014-05-12</small>
+          </h1>
+        </div>
+        <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 엿새째로, 웹 페이지에서 그래프를 그려서 보여주는 방법을 알아보려 한다.</p>
+        
+        <h3><a href="http://www.graphviz.org/">graphviz</a></h3>
+        
+        <p>예전에, 그래프를 그리는 소프트웨어로 <a href="http://www.graphviz.org/">graphviz</a>를 간단히 써봤었다. 그래프를 <a href="http://www.graphviz.org/content/dot-language">dot</a>이라는 도메인 특화 언어(DSL)로 작성하고 명령어를 실행하면, png, pdf, svg 파일로 시각화해서 보여준다.</p>
+        
+        <p>예를 들어, 아래와 같은 <code>sample.dot</code> 파일을 준비하고,</p>
+        
+        <h5>sample.dot</h5>
+        
+        <pre><code class="dot">digraph G {&#x000A;  node [style=filled...</code></pre>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-06/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-05/">프로젝트 5일: 문법 하이라이팅 - highlight.js</a>
+            <small>2014-05-11</small>
+          </h1>
+        </div>
+        <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 닷새째다.</p>
+        
+        <p>어제까지 기본적인 웹 브라우저 측과 서버 측의 테스트 환경을 구축하고 웹 패키지 매니저 <a href="http://bower.io/">bower</a>의 기본 사용법을 살펴봤다. 개인 블로그에 일지를 적다 보니, 소스코드가 아무런 색상 없이 밋밋하게 보이는 것이 눈에 걸렸다. 당장 쓰임새가 있는 주제는 아닌데, 종종 필요로 하는 주제고, 당장 이 일지에 필요하다고 여겨서, 오늘은 소스 코드에 문법 색상을 적용해서 보이는 방법을 연습해보기로 한다.</p>
+        
+        <p>정확한 용어는 아마도 <a href="http://en.wikipedia.org/wiki/Syntax_highlighting">문법 ...</a></p>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-05/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-04/">프로젝트 4일: 웹 환경 패키지 매니저 - bower</a>
+            <small>2014-05-10</small>
+          </h1>
+        </div>
+        <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 나흘째다.</p>
+        
+        <p>어제까지는 기본적인 테스트 환경을 구축했다. 절묘하게도 어젯밤 자정, 테스트 환경 준비에 열을 올린 최근에 걸맞은 타이밍으로, “Is TDD Dead?"라는 주제로 온라인 토론회가 진행되었다. 개발자들 사이에 연예인이라고 봐도 무방할 유명인들인 <a href="https://twitter.com/@martinfowler">마틴 파울러(Martin Fowler)</a>, <a href="https://twitter.com/@kentbeck">켄트 벡(Kent Beck)</a>, <a href="https://twitter.com/@dhh">데이비드 하이네마이어 한슨(David Heinemeier Hansson)</a>이 구글 행아웃으로 모여 각자의 주장을...</p>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-04/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-03/">프로젝트 3일: express 테스트 환경 - supertest</a>
+            <small>2014-05-09</small>
+          </h1>
+        </div>
+        <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 사흘째다.</p>
+        
+        <p><a href="/holiday-project-day-01/">첫날</a>과 <a href="/holiday-project-day-02/">어제</a>는, 클라이언트 측과 서버사이드에서의 자바스크립트 테스팅 환경을 구축했다. 하나 더 테스트를 위해 고려할만한 사항이 있다면, 이것을 유닛테스트라고 부르든 통합테스트라고 부르든, <a href="http://expressjs.com/">express</a>로 제공할 HTTP 요청에 대한 테스트 환경도 준비해보고자 한다. 일일이 HTTP 요청을 별도로 보내 보는 것이 아니라, 가짜(mock) 요청을 테스팅 프레임워크 수준에서 보내보고 결과를 확인하는 일이다.</p>
+        
+        <p>express의 모...</p>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-03/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-02/">프로젝트 2일: 서버 측 JS 테스트 환경</a>
+            <small>2014-05-08</small>
+          </h1>
+        </div>
+        <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 둘째 날이다.</p>
+        
+        <p><a href="/holiday-project-day-01/">첫날</a>은, 클라이언트 측에서의 자바스크립트 테스팅환경을 엉성하게나마 만들었다. 출발이 좋다. 좋다. 그럼 서버사이드에서의 테스팅은 어쩐다? <a href="http://nodejs.org/">Node.js</a>로 돌아가는 <a href="http://expressjs.com/">express</a>로 웹사이트를 구축하려 마음먹은 상태이니, Node.js용 테스팅 프레임워크를 찾아봤다.</p>
+        
+        <blockquote><p><a href="http://visionmedia.github.io/mocha/">mocha</a>, <a href="http://vowsjs.org/">vows</a>, <a href="http://visionmedia.github.io/expresso/">expresso</a>, <a href="https://github.com/visionmedia/should.js">should.js</a>, <a href="https://github.com/caolan/nodeunit">nodeunit</a>, <a href="http://jasmine.github.io/">jasmine</a></p></blockquote>
+        
+        <p>대충 찾아봐도 우후죽순 쏟아진다. 루비용 테스팅 프레임워크를 ...</p>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-02/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/holiday-project-day-01/">프로젝트 1일: 웹 브라우저 JS 테스트 환경</a>
+            <small>2014-05-07</small>
+          </h1>
+        </div>
+        <p>나는 30일간의 안식휴가 중이다. 오늘은 그 첫날이다.</p>
+        
+        <p>근무하는 회사는 여러모로 개발자로 일하기에 참 좋은 환경을 갖추고 있다. 그중에서도 가장 감사한 것은 “안식 휴가 제도"다. 직원들이 근속연수와 상관없이 매년 15일의 유급 휴가를 사용할 수 있고, 추가로, 3년마다 안식휴가를 준다. 3년 근속 시 10일, 6년 근속 시 30일, 그리고 9년 근속 시 60일의 유급 휴가를 준다. 9년 차 안식휴가의 경우, 30일씩 두 번에 나누어 사용할 수 있고, 나는 9년 차 안식휴가를 30일로 나눠서 사용 중이다.</p>
+        
+        <p>30일 동안 무엇...</p>
+        <a class='btn btn-default btn-small' href='/holiday-project-day-01/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/semver-translation/">유의적 버전 (Semantic Versioning) 번역</a>
+            <small>2014-05-06</small>
+          </h1>
+        </div>
+        <p>node.js용 모듈이나 ruby gem 패키지를 살펴보다 보면, ‘해당 패키지는 SemVer를 따르고 있다'라는 표현을 종종 접하게 된다. 해당 패키지가 버전을 정하는 모종의 규칙을 따르고 있으므로, 쓰는 사람도 그 의미를 파악해서 잘 쓰라는 의미인데, <a href="http://semver.org">원문</a>를 참조하라고 적힌 곳이 더러 있었다. 해당 사이트를 살펴보니, 버전을 정하고 올리는 규칙이 잘 정리돼 있었으며, 그 취지가 설득력 있게 느껴져서, 따라해서 사용하고 싶어졌다.</p>
+        
+        <p><img src="/img/semver/semver_translations.png" style="width: 600px;" class="img-rounded"></p>
+        
+        <p>한편 아쉽게도, 다른 여러 나라의 언어로 번역이 되어있으면서도, 아직 한국어 번역이 링크돼...</p>
+        <a class='btn btn-default btn-small' href='/semver-translation/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/wernervogels/">Amazon CTO, Werner Vogels와의 저녁식사</a>
+            <small>2012-07-05</small>
+          </h1>
+        </div>
+        <p>블로그에 남겨야겠다고 생각한 내용이었는데, 벌써 한달이 넘게 지난 일이군요. 지난 얘기지만, 꼭 남겨두고 싶은 얘기들이 있어서 메모를 뒤적이며 기억을 되살려 남겨봅니다. 5월말 Werner Vogels박사 방한에 관련한 내용입니다.</p>
+        
+        <h3>Werner Vogels</h3>
+        
+        <p><a href="http://en.wikipedia.org/wiki/File:Wernervogels_ddp.jpg"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Wernervogels_ddp.jpg/320px-Wernervogels_ddp.jpg" alt="werner vogels"></a></p>
+        
+        <p>아마존닷컴의 부사장이자 CTO인 Werner Vogels 박사님이 방한했습니다. <a href="http://www.allthingsdistributed.com">All Things Distributed</a>라는 테크니컬 블로그를 통해, 많은 개발자가 익히 알고 있는 분입니다. 모든 NoSQL 바람의 시초라고 할 수 있는 <a href="http://www.allthingsdistributed.com/2007/10/amazons_dynamo.html">Amazon Dynamo 논문</a>을...</p>
+        <a class='btn btn-default btn-small' href='/wernervogels/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/saas_score/">Software Engineering for SaaS 수료</a>
+            <small>2012-04-16</small>
+          </h1>
+        </div>
+        <h3>소프트웨어 공학 수업 수료</h3>
+        
+        <p><a href="/saas_class/">지난 포스트에서 소개드렸던 ‘Software Engineering for SaaS’ 수업</a>의 5주과정이 모두 끝났습니다.  총 2만여명이 하나 이상의 강의 영상을 보았고, 1만여명이 한 번 이상의 과제 제출이나 퀴즈 응시를 했다는군요. 수료 기준은 총 과제 점수의 절반 이상, 그리고 총 퀴즈 점수의 절반 이상을 받는 것이었으며, 약 3,500명 정도가 수료 대상이라고 합니다.</p>
+        
+        <p><img src="/img/saas_score/accomplishment.png" alt="수료증"></p>
+        
+        <p>저랑 같이 일하는 개발자 한 분도 이 수업 내용을 극찬했었는데요, 이렇게 좋은 수업의 내용을 전세계에서 3,500명이 열...</p>
+        <a class='btn btn-default btn-small' href='/saas_score/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/saas_class/">Software Engineering for SaaS</a>
+            <small>2012-03-05</small>
+          </h1>
+        </div>
+        <h3>클라우드환경의 소프트웨어공학 수업</h3>
+        
+        <p>Coursera라는 단체(?)를 통해 무료로 제공되는 공개 수업을 소개합니다. 공개 수업 제목은 ‘Software Engineering for Software as a Service'입니다. 총 5주 과정으로, 현재 3주차과정이 진행되고 있습니다.  루비온레일스로 Software-as-a-Service 애플리케이션을 개발하고 배포하는 애자일 개발에 대해 알려줍니다. 버클리 대학에서 실제 했던 수업내용을 녹화해서 제공하는것 같구요, 버클리 학생들은 이 수업을 위해 주당 5~10시간정도를 할애했...</p>
+        <a class='btn btn-default btn-small' href='/saas_class/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/gcj2012kr/">Google Code Jam Korea 2012 참가후기</a>
+            <small>2012-02-28</small>
+          </h1>
+        </div>
+        <p>2000년도, 첫 직장에 다니던 때에는 ‘10년 경력'이라는 표현은 나와는 상관 없는 일이었습니다. 그저 '10년 경력이면 대단한 실력의 프로그래머가 되겠구나'라고 막연히 생각했었죠. 그야말로 어느덧 시간이 흘러 경력 햇수는 쌓였는데, 꼭 그만한 실력이 함께 쌓이는 것은 아닌가 봅니다. 10년 내내 열심히 실력을 연마하지 않은거겠죠.</p>
+        
+        <p>이 글은, 그런 10년 경력의 프로그래머가 구글 코드 잼 코리아 2012(Google Code Jam Korea 2012)에 참가한 뒤 쓰는 후기입니다.</p>
+        
+        <h3>Google Code Jam</h3>
+        
+        <p>Google...</p>
+        <a class='btn btn-default btn-small' href='/gcj2012kr/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/korean_git/">한국의 Git 소셜 코딩 커뮤니티가 필요할까요?</a>
+            <small>2012-02-22</small>
+          </h1>
+        </div>
+        <h3>GitHub을 소개한 글</h3>
+        
+        <p>엊그제 <a href="http://occamsrazr.net/tt/254">류광님의 웹 항해일지 - GitHub 특집</a>을 읽었습니다. <a href="https://github.com/">GitHub</a>에 관련한 소개와 함께 유용한 관련 링크를 알려주셨습니다. 덕분에 GitHub/git에 관심있는 다른 분들의 블로그도 찾아가 볼 수 있었지요. 그 글에도 처음으로 언급돼있듯이, 석찬님이 이미 2009년 1월에 <a href="http://channy.creation.net/blog/626">Github, 코드 개발 기반 소셜 네트웍</a>이라는 글로 아주 상세하게 잘 설명해 주셨더군요. 두 글을 읽어보시면, 아 ‘나도 Git/GitHub을 써야겠구나'하는 생각이 들게끔 잘 소개해주신 것 같습니다.</p>
+        
+        <h3>Git: 분산 ...</h3>
+        <a class='btn btn-default btn-small' href='/korean_git/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/dynamodb/">Amazon DynamoDB 살펴보기</a>
+            <small>2012-02-18</small>
+          </h1>
+        </div>
+        <p>지난달 18일, <a href="http://www.allthingsdistributed.com/2012/01/amazon-dynamodb.html">Amazon.com의 CTO인 Werner Vogels의 블로그 포스트</a>와 함께, <em>또 하나의</em> NoSQL Database서비스가 공개되었습니다. 서비스 이름은 Amazon DynamoDB입니다. 대규모 인터넷 애플리케이션을 위해 설계한  빠르고, 확장성 좋은(scalable) NoSQL 데이타베이스 서비스라고 소개됐습니다. 또 하나라고 말했을 때 눈치채셨을지도 모르겠습니다만, Amazon.com에는 <strong>이미</strong> <a href="http://aws.amazon.com/simpledb/">SimpleDB</a>라는 NoSQL 서비스가 있습니다. 이미 SimpleDB가 있는데 왜 DynamoDB를 새로 만들...</p>
+        <a class='btn btn-default btn-small' href='/dynamodb/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/embedded_fun_1/">R/C 자동차 제어 시스템 개발기 (1)</a>
+            <small>2012-01-09</small>
+          </h1>
+        </div>
+        <h3>2010년 Daum 개발자 컨퍼런스 출품작</h3>
+        
+        <p>2010년 사내 개발자 컨퍼런스를 위해 개발했던 프로젝트 이야기입니다. <strong>“아이폰으로 장난감 무선조종 자동차를 제어하는 임베디드 시스템”</strong>을 개발해서 전시했었는데요, 기억을 잘 되살려, 그 관련한 이야기를 정리해보려합니다.</p>
+        
+        <p>아래는 그 때 전시회장에서 시연을 준비중인 모습입니다.</p>
+        
+        <p><img src="/img/embedded_fun/at_ddc10.jpg" alt="전시회장에서"></p>
+        
+        <p>전날 밤까지도 펌웨어(firmware)를 다 개발하지 못해서 초조했었는데, 운 좋게도 당일 새벽에 잘 마무리가 되어서  전시할 수 있었습니다. 사진의 표정으로보니, 역시 꽤 즐거운 작업이었던것 같습니다.</p>
+        ...
+        <a class='btn btn-default btn-small' href='/embedded_fun_1/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/em_http_proxy/">EventMachine으로 만든 HTTP 프록시 서버</a>
+            <small>2011-12-27</small>
+          </h1>
+        </div>
+        <h3>HTTP Proxy 서버</h3>
+        
+        <p>HTTP 클라이언트의 네트워크 요청을 대신 받아서, 불특정 외부 서버에 대한 요청을 대신 처리해주는 중계 서버를 HTTP forward 프록시 서버라고 부릅니다. 다음과 같은 경우에 HTTP Proxy 서버가 유용히 쓰일 수 있습니다.</p>
+        
+        <blockquote><ol>
+        <li>외부 네트워크 트래픽을 줄이거나 속도를 높이기 위한 캐싱(caching)용도</li>
+        <li>HTTP 프로토콜 관련한 개발 작업중에 테스트 또는 디버깅 용도</li>
+        <li>공인 IP가 할당되지 않고, NAT도 안걸려있는 사설 IP환경의 서버이거나, 네트워크 보안정책에 의해 외부의 HTTP 접근이 ...</li>
+        </ol></blockquote>
+        <a class='btn btn-default btn-small' href='/em_http_proxy/'>더 읽기</a>
+        <div class='page-header'>
+          <h1>
+            <a href="/express/">node.js + express + haml 연결</a>
+            <small>2011-12-08</small>
+          </h1>
+        </div>
+        <h2>node.js</h2>
+        
+        <p>서버측에서 자바스크립트 언어로 네트워크 프로그램을 만들어서 운영하기 좋은 <a href="http://nodejs.org/">node.js</a>라는 환경이 있습니다. <a href="http://code.google.com/p/v8/">구글의 v8 자바스크립트 엔진</a>위에 구축되었고, Ruby쪽의 <a href="http://rubyeventmachine.com/">EventMachine</a>처럼 Evented I/O처리를 기본으로 합니다.</p>
+        
+        <p>기존 멀티쓰레드 네트워크 프로그램 개발은 어려운 쓰레드 동기화 문제를 고려해야해서 복잡할 수 밖에 없지만, Event 방식으로 처리하면, 단일 쓰레드에서의 접근만을 고려하면 되므로 꽤나 간단하게 처리가 가능합니다. 대신 비동기 I/O처리를 해야해서 접근방식의 생소함이 있을 ...</p>
+        <a class='btn btn-default btn-small' href='/express/'>더 읽기</a>
       </div>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-11/">프로젝트 11일: Git 커밋 그래프 그리기 도전</a>
-          <small>2014-05-17</small>
-        </h1>
-      </div>
-      <p>나는 30일 동안 휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있다.</p>
-      
-      <h3>
-      <a href="http://d3js.org">D3.js</a>의 Layout 기능</h3>
-      
-      <p>오늘 새벽 5시쯤 일찍 잠에서 깼는데 다시 잠이 오지 않아, 침대에 누운 채로 <a href="http://d3js.org">D3.js</a> 문서를 좀 읽었다. <a href="https://github.com/mbostock/d3/wiki/Force-Layout">Force Layout</a> 부분을 보아하니, 원래 계획하던 그래프를 그리는 데에 사용할 수 있을 것 같은 느낌이 왔다. 문서를 마저 읽고, 설레는 마음을 품고, 책상에 앉아서 코딩을 시작했고, 잠깐의 몰입 후에 기본 코드가 완성됐다. 개발이 즐거운 이유는, 몰입(flow)의 경험이 가장 크지 않나 싶다. 피드백...</p>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-11/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-10/">프로젝트 10일: Async.js로 콜백 중첩을 풀기</a>
-          <small>2014-05-16</small>
-        </h1>
-      </div>
-      <p>나는 30일의 휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 열흘째다.</p>
-      
-      <h2><a href="https://github.com/caolan/async">Async.js</a></h2>
-      
-      <p><a href="/holiday-project-day-09/">어제 Node.js로 Git 저장소의 커밋 오브젝트를 찾아보면서, 콜백 폭포에 대한 어색함을 토로했다.</a> 출근하면, 회사 동료들에게 관련 내용을 물어보려 했는데, 오늘 마침 회사에 잠깐 들를 일이 있었다. 딸내미 100일 떡을 돌리라는 명(?)을 받들어 회사에 가서 막 쪄온 떡을  돌리고, 오랜만에 본 팀원 분들과 얘기를 나누며 관련 문의를 했고, 곧바로 속 시원하게 들은 해결안은 <a href="https://github.com/caolan/async">Async.js</a>를 사용해보라는 ...</p>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-10/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-09/">프로젝트 9일: Node.js로 Git저장소 다루기</a>
-          <small>2014-05-15</small>
-        </h1>
-      </div>
-      <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 9일째다.</p>
-      
-      <h2><a href="https://developer.github.com/v3/">GitHub API</a></h2>
-      
-      <p>오전에, <a href="https://developer.github.com/guides/getting-started/">GitHub API: Getting Started</a>를 비롯해, API 설명서를 읽었다. 프로젝트에서 사용할 기능을 깃헙이 제공하는 API를 써서 구현 가능한지 판단하는 것이 주요목표였고, 결론을 먼저 말하면, 당연히 사용할 수 있었다. 문제없이 진행할 수 있겠다.</p>
-      
-      <p>살펴보면서 느낀 점은 “깃헙 개발자 API 설명이 참 잘 돼있다"는 것이다. 눈으로 쭉 읽기만 해도 어떻게 돌아갈지 잘 와 닿았고,...</p>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-09/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-08/">프로젝트 8일: D3.js 트랜지션(Transitions)</a>
-          <small>2014-05-14</small>
-        </h1>
-      </div>
-      <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있다.</p>
-      
-      <p><a href="/holiday-project-day-07/">어제</a>와 오늘, <a href="https://github.com/mbostock/d3/wiki/API-Reference">D3.js API 레퍼런스</a>의 <a href="https://github.com/mbostock/d3/wiki/Selections">Selections</a> 부분과 <a href="https://github.com/mbostock/d3/wiki/Transitions">Transitions</a> 부분을 읽었다. <a href="/holiday-project-day-06/">그제</a> 처음으로 <a href="http://d3js.org/">D3.js</a>를 연습해보며 대충만 추측하고 넘어갔던 부분들이 조금은 더 이해가 되기 시작했다. <a href="https://github.com/mbostock/d3/wiki/Selections">Selections</a>의 한쪽에, <code>selection#data()</code> 함수를 설명하는 부분에 데이터 바인딩과 관련해서 소개된 글, <a href="http://bost.ocks.org/mike/join/">Thinking With Joins</a>도 읽어보게 됐는데, 본문에 아래와 같은 내용이 있었다.</p>
-      
-      <blockquote><p>Here’s the deal...</p></blockquote>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-08/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-07/">프로젝트 7일:  graphviz 노드에 웹 링크 걸기</a>
-          <small>2014-05-13</small>
-        </h1>
-      </div>
-      <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있다.</p>
-      
-      <p>원래는 <a href="/holiday-project-day-06/">어제</a> 해결하려다, 다른 주제 <a href="http://d3js.org/">D3.js</a>에 마음을 빼앗겨 해결하지 못했던 문제로 돌아왔다.</p>
-      
-      <blockquote><p><a href="http://www.graphviz.org/">graphviz</a>의 노드에 웹 링크(href)를 걸기</p></blockquote>
-      
-      <p>찾아보니 싱겁게도, <a href="http://www.graphviz.org/content/attrs#dhref">설명서의 각종 속성을 지정하는 부분에 너무도 간단히, 그것도 아주 뻔한 <code>href</code>라는 속성으로 지정할 수 있다</a>고 쓰여있었다. 지정할 수 있는 속성이 너무 많아서 일일이 살펴보기 어렵다는 점이 있다고 핑계를 대고 싶지만, 아, 너무도 뻔한 속성값이다.</p>
-      
-      <p>어쨌든, 한번 연습 삼아서...</p>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-07/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-06/">프로젝트 6일: 그래프 그리기 - graphviz & D3.js</a>
-          <small>2014-05-12</small>
-        </h1>
-      </div>
-      <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 엿새째로, 웹 페이지에서 그래프를 그려서 보여주는 방법을 알아보려 한다.</p>
-      
-      <h3><a href="http://www.graphviz.org/">graphviz</a></h3>
-      
-      <p>예전에, 그래프를 그리는 소프트웨어로 <a href="http://www.graphviz.org/">graphviz</a>를 간단히 써봤었다. 그래프를 <a href="http://www.graphviz.org/content/dot-language">dot</a>이라는 도메인 특화 언어(DSL)로 작성하고 명령어를 실행하면, png, pdf, svg 파일로 시각화해서 보여준다.</p>
-      
-      <p>예를 들어, 아래와 같은 <code>sample.dot</code> 파일을 준비하고,</p>
-      
-      <h5>sample.dot</h5>
-      
-      <pre><code class="dot">digraph G {&#x000A;  node [style=filled...</code></pre>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-06/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-05/">프로젝트 5일: 문법 하이라이팅 - highlight.js</a>
-          <small>2014-05-11</small>
-        </h1>
-      </div>
-      <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 닷새째다.</p>
-      
-      <p>어제까지 기본적인 웹 브라우저 측과 서버 측의 테스트 환경을 구축하고 웹 패키지 매니저 <a href="http://bower.io/">bower</a>의 기본 사용법을 살펴봤다. 개인 블로그에 일지를 적다 보니, 소스코드가 아무런 색상 없이 밋밋하게 보이는 것이 눈에 걸렸다. 당장 쓰임새가 있는 주제는 아닌데, 종종 필요로 하는 주제고, 당장 이 일지에 필요하다고 여겨서, 오늘은 소스 코드에 문법 색상을 적용해서 보이는 방법을 연습해보기로 한다.</p>
-      
-      <p>정확한 용어는 아마도 <a href="http://en.wikipedia.org/wiki/Syntax_highlighting">문법 ...</a></p>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-05/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-04/">프로젝트 4일: 웹 환경 패키지 매니저 - bower</a>
-          <small>2014-05-10</small>
-        </h1>
-      </div>
-      <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 나흘째다.</p>
-      
-      <p>어제까지는 기본적인 테스트 환경을 구축했다. 절묘하게도 어젯밤 자정, 테스트 환경 준비에 열을 올린 최근에 걸맞은 타이밍으로, “Is TDD Dead?"라는 주제로 온라인 토론회가 진행되었다. 개발자들 사이에 연예인이라고 봐도 무방할 유명인들인 <a href="https://twitter.com/@martinfowler">마틴 파울러(Martin Fowler)</a>, <a href="https://twitter.com/@kentbeck">켄트 벡(Kent Beck)</a>, <a href="https://twitter.com/@dhh">데이비드 하이네마이어 한슨(David Heinemeier Hansson)</a>이 구글 행아웃으로 모여 각자의 주장을...</p>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-04/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-03/">프로젝트 3일: express 테스트 환경 - supertest</a>
-          <small>2014-05-09</small>
-        </h1>
-      </div>
-      <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 사흘째다.</p>
-      
-      <p><a href="/holiday-project-day-01/">첫날</a>과 <a href="/holiday-project-day-02/">어제</a>는, 클라이언트 측과 서버사이드에서의 자바스크립트 테스팅 환경을 구축했다. 하나 더 테스트를 위해 고려할만한 사항이 있다면, 이것을 유닛테스트라고 부르든 통합테스트라고 부르든, <a href="http://expressjs.com/">express</a>로 제공할 HTTP 요청에 대한 테스트 환경도 준비해보고자 한다. 일일이 HTTP 요청을 별도로 보내 보는 것이 아니라, 가짜(mock) 요청을 테스팅 프레임워크 수준에서 보내보고 결과를 확인하는 일이다.</p>
-      
-      <p>express의 모...</p>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-03/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-02/">프로젝트 2일: 서버 측 JS 테스트 환경</a>
-          <small>2014-05-08</small>
-        </h1>
-      </div>
-      <p>나는 30일간의 안식휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 둘째 날이다.</p>
-      
-      <p><a href="/holiday-project-day-01/">첫날</a>은, 클라이언트 측에서의 자바스크립트 테스팅환경을 엉성하게나마 만들었다. 출발이 좋다. 좋다. 그럼 서버사이드에서의 테스팅은 어쩐다? <a href="http://nodejs.org/">Node.js</a>로 돌아가는 <a href="http://expressjs.com/">express</a>로 웹사이트를 구축하려 마음먹은 상태이니, Node.js용 테스팅 프레임워크를 찾아봤다.</p>
-      
-      <blockquote><p><a href="http://visionmedia.github.io/mocha/">mocha</a>, <a href="http://vowsjs.org/">vows</a>, <a href="http://visionmedia.github.io/expresso/">expresso</a>, <a href="https://github.com/visionmedia/should.js">should.js</a>, <a href="https://github.com/caolan/nodeunit">nodeunit</a>, <a href="http://jasmine.github.io/">jasmine</a></p></blockquote>
-      
-      <p>대충 찾아봐도 우후죽순 쏟아진다. 루비용 테스팅 프레임워크를 ...</p>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-02/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/holiday-project-day-01/">프로젝트 1일: 웹 브라우저 JS 테스트 환경</a>
-          <small>2014-05-07</small>
-        </h1>
-      </div>
-      <p>나는 30일간의 안식휴가 중이다. 오늘은 그 첫날이다.</p>
-      
-      <p>근무하는 회사는 여러모로 개발자로 일하기에 참 좋은 환경을 갖추고 있다. 그중에서도 가장 감사한 것은 “안식 휴가 제도"다. 직원들이 근속연수와 상관없이 매년 15일의 유급 휴가를 사용할 수 있고, 추가로, 3년마다 안식휴가를 준다. 3년 근속 시 10일, 6년 근속 시 30일, 그리고 9년 근속 시 60일의 유급 휴가를 준다. 9년 차 안식휴가의 경우, 30일씩 두 번에 나누어 사용할 수 있고, 나는 9년 차 안식휴가를 30일로 나눠서 사용 중이다.</p>
-      
-      <p>30일 동안 무엇...</p>
-      <a class='btn btn-default btn-small' href='/holiday-project-day-01/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/semver-translation/">유의적 버전 (Semantic Versioning) 번역</a>
-          <small>2014-05-06</small>
-        </h1>
-      </div>
-      <p>node.js용 모듈이나 ruby gem 패키지를 살펴보다 보면, ‘해당 패키지는 SemVer를 따르고 있다'라는 표현을 종종 접하게 된다. 해당 패키지가 버전을 정하는 모종의 규칙을 따르고 있으므로, 쓰는 사람도 그 의미를 파악해서 잘 쓰라는 의미인데, <a href="http://semver.org">원문</a>를 참조하라고 적힌 곳이 더러 있었다. 해당 사이트를 살펴보니, 버전을 정하고 올리는 규칙이 잘 정리돼 있었으며, 그 취지가 설득력 있게 느껴져서, 따라해서 사용하고 싶어졌다.</p>
-      
-      <p><img src="/img/semver/semver_translations.png" style="width: 600px;" class="img-rounded"></p>
-      
-      <p>한편 아쉽게도, 다른 여러 나라의 언어로 번역이 되어있으면서도, 아직 한국어 번역이 링크돼...</p>
-      <a class='btn btn-default btn-small' href='/semver-translation/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/wernervogels/">Amazon CTO, Werner Vogels와의 저녁식사</a>
-          <small>2012-07-05</small>
-        </h1>
-      </div>
-      <p>블로그에 남겨야겠다고 생각한 내용이었는데, 벌써 한달이 넘게 지난 일이군요. 지난 얘기지만, 꼭 남겨두고 싶은 얘기들이 있어서 메모를 뒤적이며 기억을 되살려 남겨봅니다. 5월말 Werner Vogels박사 방한에 관련한 내용입니다.</p>
-      
-      <h3>Werner Vogels</h3>
-      
-      <p><a href="http://en.wikipedia.org/wiki/File:Wernervogels_ddp.jpg"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Wernervogels_ddp.jpg/320px-Wernervogels_ddp.jpg" alt="werner vogels"></a></p>
-      
-      <p>아마존닷컴의 부사장이자 CTO인 Werner Vogels 박사님이 방한했습니다. <a href="http://www.allthingsdistributed.com">All Things Distributed</a>라는 테크니컬 블로그를 통해, 많은 개발자가 익히 알고 있는 분입니다. 모든 NoSQL 바람의 시초라고 할 수 있는 <a href="http://www.allthingsdistributed.com/2007/10/amazons_dynamo.html">Amazon Dynamo 논문</a>을...</p>
-      <a class='btn btn-default btn-small' href='/wernervogels/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/saas_score/">Software Engineering for SaaS 수료</a>
-          <small>2012-04-16</small>
-        </h1>
-      </div>
-      <h3>소프트웨어 공학 수업 수료</h3>
-      
-      <p><a href="/saas_class/">지난 포스트에서 소개드렸던 ‘Software Engineering for SaaS’ 수업</a>의 5주과정이 모두 끝났습니다.  총 2만여명이 하나 이상의 강의 영상을 보았고, 1만여명이 한 번 이상의 과제 제출이나 퀴즈 응시를 했다는군요. 수료 기준은 총 과제 점수의 절반 이상, 그리고 총 퀴즈 점수의 절반 이상을 받는 것이었으며, 약 3,500명 정도가 수료 대상이라고 합니다.</p>
-      
-      <p><img src="/img/saas_score/accomplishment.png" alt="수료증"></p>
-      
-      <p>저랑 같이 일하는 개발자 한 분도 이 수업 내용을 극찬했었는데요, 이렇게 좋은 수업의 내용을 전세계에서 3,500명이 열...</p>
-      <a class='btn btn-default btn-small' href='/saas_score/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/saas_class/">Software Engineering for SaaS</a>
-          <small>2012-03-05</small>
-        </h1>
-      </div>
-      <h3>클라우드환경의 소프트웨어공학 수업</h3>
-      
-      <p>Coursera라는 단체(?)를 통해 무료로 제공되는 공개 수업을 소개합니다. 공개 수업 제목은 ‘Software Engineering for Software as a Service'입니다. 총 5주 과정으로, 현재 3주차과정이 진행되고 있습니다.  루비온레일스로 Software-as-a-Service 애플리케이션을 개발하고 배포하는 애자일 개발에 대해 알려줍니다. 버클리 대학에서 실제 했던 수업내용을 녹화해서 제공하는것 같구요, 버클리 학생들은 이 수업을 위해 주당 5~10시간정도를 할애했...</p>
-      <a class='btn btn-default btn-small' href='/saas_class/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/gcj2012kr/">Google Code Jam Korea 2012 참가후기</a>
-          <small>2012-02-28</small>
-        </h1>
-      </div>
-      <p>2000년도, 첫 직장에 다니던 때에는 ‘10년 경력'이라는 표현은 나와는 상관 없는 일이었습니다. 그저 '10년 경력이면 대단한 실력의 프로그래머가 되겠구나'라고 막연히 생각했었죠. 그야말로 어느덧 시간이 흘러 경력 햇수는 쌓였는데, 꼭 그만한 실력이 함께 쌓이는 것은 아닌가 봅니다. 10년 내내 열심히 실력을 연마하지 않은거겠죠.</p>
-      
-      <p>이 글은, 그런 10년 경력의 프로그래머가 구글 코드 잼 코리아 2012(Google Code Jam Korea 2012)에 참가한 뒤 쓰는 후기입니다.</p>
-      
-      <h3>Google Code Jam</h3>
-      
-      <p>Google...</p>
-      <a class='btn btn-default btn-small' href='/gcj2012kr/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/korean_git/">한국의 Git 소셜 코딩 커뮤니티가 필요할까요?</a>
-          <small>2012-02-22</small>
-        </h1>
-      </div>
-      <h3>GitHub을 소개한 글</h3>
-      
-      <p>엊그제 <a href="http://occamsrazr.net/tt/254">류광님의 웹 항해일지 - GitHub 특집</a>을 읽었습니다. <a href="https://github.com/">GitHub</a>에 관련한 소개와 함께 유용한 관련 링크를 알려주셨습니다. 덕분에 GitHub/git에 관심있는 다른 분들의 블로그도 찾아가 볼 수 있었지요. 그 글에도 처음으로 언급돼있듯이, 석찬님이 이미 2009년 1월에 <a href="http://channy.creation.net/blog/626">Github, 코드 개발 기반 소셜 네트웍</a>이라는 글로 아주 상세하게 잘 설명해 주셨더군요. 두 글을 읽어보시면, 아 ‘나도 Git/GitHub을 써야겠구나'하는 생각이 들게끔 잘 소개해주신 것 같습니다.</p>
-      
-      <h3>Git: 분산 ...</h3>
-      <a class='btn btn-default btn-small' href='/korean_git/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/dynamodb/">Amazon DynamoDB 살펴보기</a>
-          <small>2012-02-18</small>
-        </h1>
-      </div>
-      <p>지난달 18일, <a href="http://www.allthingsdistributed.com/2012/01/amazon-dynamodb.html">Amazon.com의 CTO인 Werner Vogels의 블로그 포스트</a>와 함께, <em>또 하나의</em> NoSQL Database서비스가 공개되었습니다. 서비스 이름은 Amazon DynamoDB입니다. 대규모 인터넷 애플리케이션을 위해 설계한  빠르고, 확장성 좋은(scalable) NoSQL 데이타베이스 서비스라고 소개됐습니다. 또 하나라고 말했을 때 눈치채셨을지도 모르겠습니다만, Amazon.com에는 <strong>이미</strong> <a href="http://aws.amazon.com/simpledb/">SimpleDB</a>라는 NoSQL 서비스가 있습니다. 이미 SimpleDB가 있는데 왜 DynamoDB를 새로 만들...</p>
-      <a class='btn btn-default btn-small' href='/dynamodb/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/embedded_fun_1/">R/C 자동차 제어 시스템 개발기 (1)</a>
-          <small>2012-01-09</small>
-        </h1>
-      </div>
-      <h3>2010년 Daum 개발자 컨퍼런스 출품작</h3>
-      
-      <p>2010년 사내 개발자 컨퍼런스를 위해 개발했던 프로젝트 이야기입니다. <strong>“아이폰으로 장난감 무선조종 자동차를 제어하는 임베디드 시스템”</strong>을 개발해서 전시했었는데요, 기억을 잘 되살려, 그 관련한 이야기를 정리해보려합니다.</p>
-      
-      <p>아래는 그 때 전시회장에서 시연을 준비중인 모습입니다.</p>
-      
-      <p><img src="/img/embedded_fun/at_ddc10.jpg" alt="전시회장에서"></p>
-      
-      <p>전날 밤까지도 펌웨어(firmware)를 다 개발하지 못해서 초조했었는데, 운 좋게도 당일 새벽에 잘 마무리가 되어서  전시할 수 있었습니다. 사진의 표정으로보니, 역시 꽤 즐거운 작업이었던것 같습니다.</p>
-      ...
-      <a class='btn btn-default btn-small' href='/embedded_fun_1/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/em_http_proxy/">EventMachine으로 만든 HTTP 프록시 서버</a>
-          <small>2011-12-27</small>
-        </h1>
-      </div>
-      <h3>HTTP Proxy 서버</h3>
-      
-      <p>HTTP 클라이언트의 네트워크 요청을 대신 받아서, 불특정 외부 서버에 대한 요청을 대신 처리해주는 중계 서버를 HTTP forward 프록시 서버라고 부릅니다. 다음과 같은 경우에 HTTP Proxy 서버가 유용히 쓰일 수 있습니다.</p>
-      
-      <blockquote><ol>
-      <li>외부 네트워크 트래픽을 줄이거나 속도를 높이기 위한 캐싱(caching)용도</li>
-      <li>HTTP 프로토콜 관련한 개발 작업중에 테스트 또는 디버깅 용도</li>
-      <li>공인 IP가 할당되지 않고, NAT도 안걸려있는 사설 IP환경의 서버이거나, 네트워크 보안정책에 의해 외부의 HTTP 접근이 ...</li>
-      </ol></blockquote>
-      <a class='btn btn-default btn-small' href='/em_http_proxy/'>더 읽기</a>
-      <div class='page-header'>
-        <h1>
-          <a href="/express/">node.js + express + haml 연결</a>
-          <small>2011-12-08</small>
-        </h1>
-      </div>
-      <h2>node.js</h2>
-      
-      <p>서버측에서 자바스크립트 언어로 네트워크 프로그램을 만들어서 운영하기 좋은 <a href="http://nodejs.org/">node.js</a>라는 환경이 있습니다. <a href="http://code.google.com/p/v8/">구글의 v8 자바스크립트 엔진</a>위에 구축되었고, Ruby쪽의 <a href="http://rubyeventmachine.com/">EventMachine</a>처럼 Evented I/O처리를 기본으로 합니다.</p>
-      
-      <p>기존 멀티쓰레드 네트워크 프로그램 개발은 어려운 쓰레드 동기화 문제를 고려해야해서 복잡할 수 밖에 없지만, Event 방식으로 처리하면, 단일 쓰레드에서의 접근만을 고려하면 되므로 꽤나 간단하게 처리가 가능합니다. 대신 비동기 I/O처리를 해야해서 접근방식의 생소함이 있을 ...</p>
-      <a class='btn btn-default btn-small' href='/express/'>더 읽기</a>
+    </section>
+    <div class='container'>
+      <footer>
+        <div class='pull-right'>
+          &copy; 2012-2014
+          <a href='https://twitter.com/hatemogi'>@hatemogi</a>
+        </div>
+      </footer>
     </div>
-  </section>
-  <div class='container'>
-    <footer>
-      <div class='pull-right'>
-        &copy; 2012-2014
-        <a href='https://twitter.com/hatemogi'>@hatemogi</a>
-      </div>
-    </footer>
-  </div>
-  <script src='/js/application.js' type='text/javascript'></script>
-</body>
+    <script src='/js/application.js' type='text/javascript'></script>
+  </body>
+</html>
