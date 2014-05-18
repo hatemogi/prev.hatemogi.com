@@ -1,132 +1,132 @@
 <!DOCTYPE html>
-<html prefix='og: http://ogp.me/ns#'>
-  <head>
-    <meta charset='utf-8'>
-    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-    <meta content='프로젝트 10일: Async.js로 콜백 중첩을 풀기' property='og:title'>
-    <meta content='website' property='og:type'>
-    <meta content='https://avatars2.githubusercontent.com/u/238582?s=200' property='og:image'>
-    <title>프로그래밍의 재미: 프로젝트 10일: Async.js로 콜백 중첩을 풀기</title>
-    <link href='/css/application.css' rel='stylesheet' type='text/css'>
-    <link href='/css/highlight/tomorrow.css' rel='stylesheet' type='text/css'>
-    <link href='/img/favicon.png' rel='shortcut icon'>
-  </head>
-  <body>
+<head prefix='og: http://ogp.me/ns#'>
+  <meta charset='utf-8'>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <meta content='프로젝트 10일: Async.js로 콜백 중첩을 풀기' property='og:title'>
+  <meta content='website' property='og:type'>
+  <meta content='https://avatars2.githubusercontent.com/u/238582?s=200' property='og:image'>
+  <meta content='제주의 소프트웨어 개발자, 김대현의 개발 블로그' property='og:description'>
+  <title>프로그래밍의 재미: 프로젝트 10일: Async.js로 콜백 중첩을 풀기</title>
+  <link href='/css/application.css' rel='stylesheet' type='text/css'>
+  <link href='/css/highlight/tomorrow.css' rel='stylesheet' type='text/css'>
+  <link href='/img/favicon.png' rel='shortcut icon'>
+</head>
+<body>
+  <div class='container'>
+    <div class='header'>
+      <ul class='nav nav-pills pull-right'>
+        <li>
+          <a href='/'>홈</a>
+        </li>
+        <li>
+          <a href='/articles/'>글</a>
+        </li>
+        <li>
+          <a href='/show-your-work/'>작업</a>
+        </li>
+        <li>
+          <a href='/about/'>소개</a>
+        </li>
+      </ul>
+      <h3 class='text-muted'>hatemogi.com</h3>
+    </div>
+  </div>
+  <section id='main-content'>
     <div class='container'>
-      <div class='header'>
-        <ul class='nav nav-pills pull-right'>
-          <li>
-            <a href='/'>홈</a>
-          </li>
-          <li>
-            <a href='/articles/'>글</a>
-          </li>
-          <li>
-            <a href='/show-your-work/'>작업</a>
-          </li>
-          <li>
-            <a href='/about/'>소개</a>
-          </li>
+      <div class='page-header'>
+        <h1>
+          프로젝트 10일: Async.js로 콜백 중첩을 풀기
+          <small>2014-05-16</small>
+        </h1>
+      </div>
+      <p>나는 30일의 휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 열흘째다.</p>
+      
+      <h2><a href="https://github.com/caolan/async">Async.js</a></h2>
+      
+      <p><a href="/holiday-project-day-09/">어제 Node.js로 Git 저장소의 커밋 오브젝트를 찾아보면서, 콜백 폭포에 대한 어색함을 토로했다.</a> 출근하면, 회사 동료들에게 관련 내용을 물어보려 했는데, 오늘 마침 회사에 잠깐 들를 일이 있었다. 딸내미 100일 떡을 돌리라는 명(?)을 받들어 회사에 가서 막 쪄온 떡을  돌리고, 오랜만에 본 팀원 분들과 얘기를 나누며 관련 문의를 했고, 곧바로 속 시원하게 들은 해결안은 <a href="https://github.com/caolan/async">Async.js</a>를 사용해보라는 것!</p>
+      
+      <p>집에 와서 살펴보니, <a href="https://github.com/caolan/async">Async.js</a>는 여러 가지 비동기 호출에 편리한 기능을 제공하는데, 그중에서 <a href="https://github.com/caolan/async#waterfall">waterfall</a> 함수를 사용하면 자꾸 중첩되는 콜백 함수들을 명시적으로 표현해 호출하기에 좋다.</p>
+      
+      <pre><code class="js">async.waterfall(tasks, [callback])&#x000A;</code></pre>
+      
+      <p>waterfall 함수는 <code>tasks</code> 배열과, 에러 <code>callback</code>을 파라미터로 받는다. <code>tasks</code> 배열에 넣어 전달하는 각각의 함수는 차례로 실행되며, 그 전에 실행된 함수에서 호출한 <code>callback</code> 함수를 통해 다음 함수로 전달된다. 만약 실행된 함수에서 <code>callback</code>의 첫 번째 파라미터인 <code>err</code>에 <code>null</code>이 아닌 값을 넣어 호출한다면 &ndash; 즉 에러가 발생하면 &ndash; 그 뒤의 함수들은 호출되지 않고, waterfall의 두 번째 파라미터였던 에러 <code>callback</code>이 실행되면서 err 값이 전달된다.</p>
+      
+      <p>내용도 어렵고, 내 표현력도 부족해서 이해하기 쉽지 않다. 사이트의 예제를 그대로 가져와 다시 설명하자.</p>
+      
+      <h3><a href="https://github.com/caolan/async#waterfall">waterfall</a> 예제</h3>
+      
+      <pre><code class="javascript">async.waterfall([&#x000A;  function(callback){&#x000A;    callback(null, '하나', '둘');&#x000A;  },&#x000A;  function(arg1, arg2, callback){&#x000A;    // arg1는 '하나'고, arg2는 '둘'이다.&#x000A;    callback(null, '셋');&#x000A;  },&#x000A;  function(arg1, callback){&#x000A;    // arg1은 '셋'이다.&#x000A;    callback(null, '끝');&#x000A;  }&#x000A;], function (err, result) {&#x000A;   // result에는 '끝'이 담겨 온다.    &#x000A;});&#x000A;</code></pre>
+      
+      <p>위 예제에서 waterfall 함수의 첫 번째 파라미터 <code>tasks</code>에 익명 함수 3개를 전달했고, 마지막 콜백 함수도 표현돼 있다.</p>
+      
+      <ol>
+      <li><p>첫 번째 익명 함수는 처음 실행되는 함수이기에, 별도 파라미터 없이, callback 함수만 파라미터로 받았고, 그 함수를 곧바로 실행했으며, 첫 번째 파라미터가 <code>null</code>이므로, 문제없이 두 번째 익명 함수를 호출한다. 그리고, 그때 전달하는 인자는 <code>하나</code>와 <code>둘</code>이 된다.</p></li>
+      <li><p>두 번째 익명 함수는, 첫째 함수에서 callback 함수를 호출하며 파라미터로 전달한 <code>하나</code>와 <code>둘</code>을 각각 arg1과 arg2로 받았고, 이 익명 함수에서는 호출하는 callback에는 <code>null</code>, <code>셋</code>을 전달하므로, 정상적으로 세 번째 익명 함수를 호출한다.</p></li>
+      <li><p>마지막으로, 세 번째 익명 함수는, <code>셋</code>을 받은 뒤, 마지막 callback으로 <code>끝</code>을 담아 호출한다. 그러면 최종적으로 waterfall의 두 번째 파라미터인 callback 함수에 err는 null, result에는 <code>끝</code>을 담아 호출한다.</p></li>
+      </ol>
+      
+      
+      <p>만약 여기서 두 번째 익명함수를 살짝 바꿔서 아래와 같이 호출한다면 어떻게 될까?</p>
+      
+      <pre><code class="js">  // 전략&#x000A;  function(arg1, arg2, callback){&#x000A;    // arg1는 '하나'고, arg2는 '둘'이다.&#x000A;    callback("어떤 에러", '셋');&#x000A;  },&#x000A;  // 후략&#x000A;</code></pre>
+      
+      <p>이럴 경우, callback의 err 파라미터가 null이 아니므로, <strong>세 번째 익명 함수를 호출하지 않은채</strong>, 마지막 콜백 함수가 호출되며, 해당 콜백에는 <code>어떤 에러</code>와 <code>셋</code>을 전달한다.</p>
+      
+      <p>조금 복잡하긴 하지만, node.js에서 흔히 쓰는 &ldquo;중첩된 비동기 호출"을 깔끔히 처리하기 좋은 방법이다.</p>
+      
+      <h2>어제의 콜백 폭포를 다시 쓴다면&hellip;</h2>
+      
+      <p><a href="/holiday-project-day-09/">어제</a>의 코드를 다시 보자. <a href="http://www.nodegit.org/">nodegit</a>을 이용해 Git 저장소를 열고, 특정 커밋 객체를 찾아보는 테스트 코드다. 이번에는 커피스크립트 코드로 살펴보자.</p>
+      
+      <h3><a href="https://github.com/hatemogi/karma-practice/blob/day-10/spec/nodegit/repo_spec.coffee">repo_spec.coffee</a></h3>
+      
+      <p>어제의 원래 코드이고, 콜백이 여러번 중첩됐다.</p>
+      
+      <pre><code class="coffeescript">nodegit = require("nodegit")&#x000A;&#x000A;describe '[CoffeeScript] nodegit 저장소', () -&gt;&#x000A;  it '열어서 커밋 찾아보기', (done) -&gt;&#x000A;    sha = "e9ec116a8fb2ea051a4c2d46cba637b3fba30575"&#x000A;    nodegit.Repo.open "git/nodegit", (err, repo) -&gt;&#x000A;      return done(err) if err&#x000A;      expect(repo.path()).toMatch /\.git\/$/&#x000A;      repo.getCommit sha, (err, entry) -&gt;&#x000A;        return done(err) if err&#x000A;        expect(entry.sha()).toEqual sha    &#x000A;        done()&#x000A;</code></pre>
+      
+      <p>원래 코드는 저장소를 open 함수로 열고, 에러 발생 여부를 확인하고, 커밋 객체를 찾아보고, 또 에러 발생 여부를 확인한 뒤, 마지막으로 jasmine 테스트 완료를 통보(callback)한다. 코드 중간마다 에러 발생 여부를 확인하는 코드와 더는 실행하지 않게 하는 <code>return</code> 구문이 필요하다. (일반 코드라면 throw로 확실하게 중단 하는 것이 좋겠지만, jasmine에 에러 내역을 <code>done(err)</code> 함수로 전달하기 위해 return으로 종료했다.)</p>
+      
+      <h3><a href="https://github.com/hatemogi/karma-practice/blob/day-10/spec/nodegit/repo_async_spec.coffee">repo_async_spec.coffee</a></h3>
+      
+      <p>아래는, async.<a href="https://github.com/caolan/async#waterfall">waterfall</a>로 다시 쓴 코드다.</p>
+      
+      <pre><code class="coffeescript">nodegit = require("nodegit")&#x000A;async = require("async")&#x000A;&#x000A;describe '[CoffeeScript w/async.js] nodegit 저장소', () -&gt;&#x000A;  it '열어서 커밋 찾아보기', (done) -&gt;&#x000A;    sha = "e9ec116a8fb2ea051a4c2d46cba637b3fba30575"&#x000A;    async.waterfall [&#x000A;      (callback) -&gt; &#x000A;        nodegit.Repo.open "git/nodegit", callback&#x000A;      (repo, callback) -&gt;&#x000A;        expect(repo.path()).toMatch /\.git\/$/&#x000A;        repo.getCommit sha, callback&#x000A;      (entry, callback) -&gt;&#x000A;        expect(entry.sha()).toEqual sha&#x000A;        callback null&#x000A;    ], (err, _result) -&gt; done(err)&#x000A;</code></pre>
+      
+      <p>waterfall로 작성한 코드는 위와 같다. 콜백 <strong>폭포(중첩)</strong>를, 익명 함수의 <strong>나열</strong>로 간소화했으며, 중간마다 에러 발생 여부를 검사하는 코드도 보이지 않아서, 논리적 흐름을 거침없이 볼 수 있다. 공교롭게도(?) 코드 라인 수는 늘어났기에, 이 경우 확실히 waterfall을 사용한 것이 낫다고 주장하기 어려운 면도 있지만, 개인적으로는 전체 흐름을 한 눈에 파악하기 쉽기 때문에 종종 사용하게 될 것 같다.</p>
+      
+      <p><a href="https://github.com/caolan/async#waterfall">waterfall</a> 말고도, <a href="https://github.com/caolan/async">Async.js</a>에 비동기 함수 호출을 하는 데 편리한 함수들이 많아서, 틈틈히 참고해가며 코딩하기로 한다.</p>
+      
+      <p>오늘은 여기까지.</p>
+      <div class='page-header'>
+        <h4>
+          30일 프로젝트 글 목록
+        </h4>
+      </div>
+      <blockquote>
+        <ul>
+        <li><a href="/holiday-project-day-01/">(05/07) 프로젝트 1일: 웹 브라우저 JS 테스트 환경 - karma &amp; jasmine</a></li>
+        <li><a href="/holiday-project-day-02/">(05/08) 프로젝트 2일: 서버 측 JS 테스트 환경 - jasmine-node</a></li>
+        <li><a href="/holiday-project-day-03/">(05/09) 프로젝트 3일: express 테스트 환경 - supertest</a></li>
+        <li><a href="/holiday-project-day-04/">(05/10) 프로젝트 4일: 웹 환경 패키지 매니저 - bower</a></li>
+        <li><a href="/holiday-project-day-05/">(05/11) 프로젝트 5일: 문법 하이라이팅 - highlight.js</a></li>
+        <li><a href="/holiday-project-day-06/">(05/12) 프로젝트 6일: 그래프 그리기 - graphviz &amp; D3.js</a></li>
+        <li><a href="/holiday-project-day-07/">(05/13) 프로젝트 7일: graphviz 노드에 웹 링크 걸기</a></li>
+        <li><a href="/holiday-project-day-08/">(05/14) 프로젝트 8일: D3.js 트랜지션(Transitions)</a></li>
+        <li><a href="/holiday-project-day-09/">(05/15) 프로젝트 9일: Node.js로 Git저장소 다루기</a></li>
+        <li><a href="/holiday-project-day-10/">(05/16) 프로젝트 10일: Async.js로 콜백 중첩을 풀기</a></li>
+        <li><a href="/holiday-project-day-11/">(05/17) 프로젝트 11일: Git 커밋 그래프 그리기 도전</a></li>
         </ul>
-        <h3 class='text-muted'>hatemogi.com</h3>
-      </div>
+      </blockquote>
     </div>
-    <section id='main-content'>
-      <div class='container'>
-        <div class='page-header'>
-          <h1>
-            프로젝트 10일: Async.js로 콜백 중첩을 풀기
-            <small>2014-05-16</small>
-          </h1>
-        </div>
-        <p>나는 30일의 휴가 중이다. 휴가 동안 개인 개발 프로젝트를 진행하고 있고, 오늘은 그 열흘째다.</p>
-        
-        <h2><a href="https://github.com/caolan/async">Async.js</a></h2>
-        
-        <p><a href="/holiday-project-day-09/">어제 Node.js로 Git 저장소의 커밋 오브젝트를 찾아보면서, 콜백 폭포에 대한 어색함을 토로했다.</a> 출근하면, 회사 동료들에게 관련 내용을 물어보려 했는데, 오늘 마침 회사에 잠깐 들를 일이 있었다. 딸내미 100일 떡을 돌리라는 명(?)을 받들어 회사에 가서 막 쪄온 떡을  돌리고, 오랜만에 본 팀원 분들과 얘기를 나누며 관련 문의를 했고, 곧바로 속 시원하게 들은 해결안은 <a href="https://github.com/caolan/async">Async.js</a>를 사용해보라는 것!</p>
-        
-        <p>집에 와서 살펴보니, <a href="https://github.com/caolan/async">Async.js</a>는 여러 가지 비동기 호출에 편리한 기능을 제공하는데, 그중에서 <a href="https://github.com/caolan/async#waterfall">waterfall</a> 함수를 사용하면 자꾸 중첩되는 콜백 함수들을 명시적으로 표현해 호출하기에 좋다.</p>
-        
-        <pre><code class="js">async.waterfall(tasks, [callback])&#x000A;</code></pre>
-        
-        <p>waterfall 함수는 <code>tasks</code> 배열과, 에러 <code>callback</code>을 파라미터로 받는다. <code>tasks</code> 배열에 넣어 전달하는 각각의 함수는 차례로 실행되며, 그 전에 실행된 함수에서 호출한 <code>callback</code> 함수를 통해 다음 함수로 전달된다. 만약 실행된 함수에서 <code>callback</code>의 첫 번째 파라미터인 <code>err</code>에 <code>null</code>이 아닌 값을 넣어 호출한다면 &ndash; 즉 에러가 발생하면 &ndash; 그 뒤의 함수들은 호출되지 않고, waterfall의 두 번째 파라미터였던 에러 <code>callback</code>이 실행되면서 err 값이 전달된다.</p>
-        
-        <p>내용도 어렵고, 내 표현력도 부족해서 이해하기 쉽지 않다. 사이트의 예제를 그대로 가져와 다시 설명하자.</p>
-        
-        <h3><a href="https://github.com/caolan/async#waterfall">waterfall</a> 예제</h3>
-        
-        <pre><code class="javascript">async.waterfall([&#x000A;  function(callback){&#x000A;    callback(null, '하나', '둘');&#x000A;  },&#x000A;  function(arg1, arg2, callback){&#x000A;    // arg1는 '하나'고, arg2는 '둘'이다.&#x000A;    callback(null, '셋');&#x000A;  },&#x000A;  function(arg1, callback){&#x000A;    // arg1은 '셋'이다.&#x000A;    callback(null, '끝');&#x000A;  }&#x000A;], function (err, result) {&#x000A;   // result에는 '끝'이 담겨 온다.    &#x000A;});&#x000A;</code></pre>
-        
-        <p>위 예제에서 waterfall 함수의 첫 번째 파라미터 <code>tasks</code>에 익명 함수 3개를 전달했고, 마지막 콜백 함수도 표현돼 있다.</p>
-        
-        <ol>
-        <li><p>첫 번째 익명 함수는 처음 실행되는 함수이기에, 별도 파라미터 없이, callback 함수만 파라미터로 받았고, 그 함수를 곧바로 실행했으며, 첫 번째 파라미터가 <code>null</code>이므로, 문제없이 두 번째 익명 함수를 호출한다. 그리고, 그때 전달하는 인자는 <code>하나</code>와 <code>둘</code>이 된다.</p></li>
-        <li><p>두 번째 익명 함수는, 첫째 함수에서 callback 함수를 호출하며 파라미터로 전달한 <code>하나</code>와 <code>둘</code>을 각각 arg1과 arg2로 받았고, 이 익명 함수에서는 호출하는 callback에는 <code>null</code>, <code>셋</code>을 전달하므로, 정상적으로 세 번째 익명 함수를 호출한다.</p></li>
-        <li><p>마지막으로, 세 번째 익명 함수는, <code>셋</code>을 받은 뒤, 마지막 callback으로 <code>끝</code>을 담아 호출한다. 그러면 최종적으로 waterfall의 두 번째 파라미터인 callback 함수에 err는 null, result에는 <code>끝</code>을 담아 호출한다.</p></li>
-        </ol>
-        
-        
-        <p>만약 여기서 두 번째 익명함수를 살짝 바꿔서 아래와 같이 호출한다면 어떻게 될까?</p>
-        
-        <pre><code class="js">  // 전략&#x000A;  function(arg1, arg2, callback){&#x000A;    // arg1는 '하나'고, arg2는 '둘'이다.&#x000A;    callback("어떤 에러", '셋');&#x000A;  },&#x000A;  // 후략&#x000A;</code></pre>
-        
-        <p>이럴 경우, callback의 err 파라미터가 null이 아니므로, <strong>세 번째 익명 함수를 호출하지 않은채</strong>, 마지막 콜백 함수가 호출되며, 해당 콜백에는 <code>어떤 에러</code>와 <code>셋</code>을 전달한다.</p>
-        
-        <p>조금 복잡하긴 하지만, node.js에서 흔히 쓰는 &ldquo;중첩된 비동기 호출"을 깔끔히 처리하기 좋은 방법이다.</p>
-        
-        <h2>어제의 콜백 폭포를 다시 쓴다면&hellip;</h2>
-        
-        <p><a href="/holiday-project-day-09/">어제</a>의 코드를 다시 보자. <a href="http://www.nodegit.org/">nodegit</a>을 이용해 Git 저장소를 열고, 특정 커밋 객체를 찾아보는 테스트 코드다. 이번에는 커피스크립트 코드로 살펴보자.</p>
-        
-        <h3><a href="https://github.com/hatemogi/karma-practice/blob/day-10/spec/nodegit/repo_spec.coffee">repo_spec.coffee</a></h3>
-        
-        <p>어제의 원래 코드이고, 콜백이 여러번 중첩됐다.</p>
-        
-        <pre><code class="coffeescript">nodegit = require("nodegit")&#x000A;&#x000A;describe '[CoffeeScript] nodegit 저장소', () -&gt;&#x000A;  it '열어서 커밋 찾아보기', (done) -&gt;&#x000A;    sha = "e9ec116a8fb2ea051a4c2d46cba637b3fba30575"&#x000A;    nodegit.Repo.open "git/nodegit", (err, repo) -&gt;&#x000A;      return done(err) if err&#x000A;      expect(repo.path()).toMatch /\.git\/$/&#x000A;      repo.getCommit sha, (err, entry) -&gt;&#x000A;        return done(err) if err&#x000A;        expect(entry.sha()).toEqual sha    &#x000A;        done()&#x000A;</code></pre>
-        
-        <p>원래 코드는 저장소를 open 함수로 열고, 에러 발생 여부를 확인하고, 커밋 객체를 찾아보고, 또 에러 발생 여부를 확인한 뒤, 마지막으로 jasmine 테스트 완료를 통보(callback)한다. 코드 중간마다 에러 발생 여부를 확인하는 코드와 더는 실행하지 않게 하는 <code>return</code> 구문이 필요하다. (일반 코드라면 throw로 확실하게 중단 하는 것이 좋겠지만, jasmine에 에러 내역을 <code>done(err)</code> 함수로 전달하기 위해 return으로 종료했다.)</p>
-        
-        <h3><a href="https://github.com/hatemogi/karma-practice/blob/day-10/spec/nodegit/repo_async_spec.coffee">repo_async_spec.coffee</a></h3>
-        
-        <p>아래는, async.<a href="https://github.com/caolan/async#waterfall">waterfall</a>로 다시 쓴 코드다.</p>
-        
-        <pre><code class="coffeescript">nodegit = require("nodegit")&#x000A;async = require("async")&#x000A;&#x000A;describe '[CoffeeScript w/async.js] nodegit 저장소', () -&gt;&#x000A;  it '열어서 커밋 찾아보기', (done) -&gt;&#x000A;    sha = "e9ec116a8fb2ea051a4c2d46cba637b3fba30575"&#x000A;    async.waterfall [&#x000A;      (callback) -&gt; &#x000A;        nodegit.Repo.open "git/nodegit", callback&#x000A;      (repo, callback) -&gt;&#x000A;        expect(repo.path()).toMatch /\.git\/$/&#x000A;        repo.getCommit sha, callback&#x000A;      (entry, callback) -&gt;&#x000A;        expect(entry.sha()).toEqual sha&#x000A;        callback null&#x000A;    ], (err, _result) -&gt; done(err)&#x000A;</code></pre>
-        
-        <p>waterfall로 작성한 코드는 위와 같다. 콜백 <strong>폭포(중첩)</strong>를, 익명 함수의 <strong>나열</strong>로 간소화했으며, 중간마다 에러 발생 여부를 검사하는 코드도 보이지 않아서, 논리적 흐름을 거침없이 볼 수 있다. 공교롭게도(?) 코드 라인 수는 늘어났기에, 이 경우 확실히 waterfall을 사용한 것이 낫다고 주장하기 어려운 면도 있지만, 개인적으로는 전체 흐름을 한 눈에 파악하기 쉽기 때문에 종종 사용하게 될 것 같다.</p>
-        
-        <p><a href="https://github.com/caolan/async#waterfall">waterfall</a> 말고도, <a href="https://github.com/caolan/async">Async.js</a>에 비동기 함수 호출을 하는 데 편리한 함수들이 많아서, 틈틈히 참고해가며 코딩하기로 한다.</p>
-        
-        <p>오늘은 여기까지.</p>
-        <div class='page-header'>
-          <h4>
-            30일 프로젝트 글 목록
-          </h4>
-        </div>
-        <blockquote>
-          <ul>
-          <li><a href="/holiday-project-day-01/">(05/07) 프로젝트 1일: 웹 브라우저 JS 테스트 환경 - karma &amp; jasmine</a></li>
-          <li><a href="/holiday-project-day-02/">(05/08) 프로젝트 2일: 서버 측 JS 테스트 환경 - jasmine-node</a></li>
-          <li><a href="/holiday-project-day-03/">(05/09) 프로젝트 3일: express 테스트 환경 - supertest</a></li>
-          <li><a href="/holiday-project-day-04/">(05/10) 프로젝트 4일: 웹 환경 패키지 매니저 - bower</a></li>
-          <li><a href="/holiday-project-day-05/">(05/11) 프로젝트 5일: 문법 하이라이팅 - highlight.js</a></li>
-          <li><a href="/holiday-project-day-06/">(05/12) 프로젝트 6일: 그래프 그리기 - graphviz &amp; D3.js</a></li>
-          <li><a href="/holiday-project-day-07/">(05/13) 프로젝트 7일: graphviz 노드에 웹 링크 걸기</a></li>
-          <li><a href="/holiday-project-day-08/">(05/14) 프로젝트 8일: D3.js 트랜지션(Transitions)</a></li>
-          <li><a href="/holiday-project-day-09/">(05/15) 프로젝트 9일: Node.js로 Git저장소 다루기</a></li>
-          <li><a href="/holiday-project-day-10/">(05/16) 프로젝트 10일: Async.js로 콜백 중첩을 풀기</a></li>
-          <li><a href="/holiday-project-day-11/">(05/17) 프로젝트 11일: Git 커밋 그래프 그리기 도전</a></li>
-          </ul>
-        </blockquote>
+  </section>
+  <div class='container'>
+    <footer>
+      <div class='pull-right'>
+        &copy; 2012-2014
+        <a href='https://twitter.com/hatemogi'>@hatemogi</a>
       </div>
-    </section>
-    <div class='container'>
-      <footer>
-        <div class='pull-right'>
-          &copy; 2012-2014
-          <a href='https://twitter.com/hatemogi'>@hatemogi</a>
-        </div>
-      </footer>
-    </div>
-    <script src='/js/application.js' type='text/javascript'></script>
-  </body>
-</html>
+    </footer>
+  </div>
+  <script src='/js/application.js' type='text/javascript'></script>
+</body>
