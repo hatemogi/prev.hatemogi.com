@@ -1,8 +1,16 @@
 !!! 5
-%head
+%head(prefix="og: http://ogp.me/ns#")
   %meta(charset='utf-8')
+  %meta(http-equiv="X-UA-Compatible" content="IE=edge")
   %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-  %title= (current_page.data.title && "프로그래밍의 재미: #{current_page.data.title}")|| '프로그래밍의 재미'
+  %meta(property="og:title" content="#{current_page.data.title || '프로그래밍의 재미'}")
+  %meta(property="og:type" content="website")
+  - if current_page.data.image
+    %meta(property="og:image" content="#{current_page.data.image}")
+  - if current_page.data.url
+    %meta(property="og:url" content="#{current_page.data.url}")
+  %meta(property="og:description" content="#{current_page.data.description || '제주의 소프트웨어 개발자, 김대현의 개발 블로그'}")
+  %title= current_page.data.title || '프로그래밍의 재미'
   %link(rel="stylesheet" type="text/css" href="/css/application.css")
   %link(rel="stylesheet" type="text/css" href="/css/highlight/tomorrow.css")
   %link(rel="shortcut icon" href="/img/favicon.png")
@@ -29,4 +37,3 @@
         &copy; 2012-2014 
         %a(href="https://twitter.com/hatemogi") @hatemogi            
   %script(src="/js/application.js" type="text/javascript")
-

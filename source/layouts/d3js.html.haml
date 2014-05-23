@@ -1,13 +1,22 @@
 !!! 5
-%head
+%head(prefix="og: http://ogp.me/ns#")
   %meta(charset='utf-8')
-  %meta(name="viewport" content="width=device-width, initial-scale=1.0")
   %title= (current_page.data.title && "프로그래밍의 재미: #{current_page.data.title}")|| '프로그래밍의 재미'
+  %meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  %meta(property="og:title" content="#{current_page.data.title || '프로그래밍의 재미'}")
+  %meta(property="og:type" content="article")
+  - if current_page.data.image
+    %meta(property="og:image" content="#{current_page.data.image}")
+  - if current_page.data.url
+    %meta(property="og:url" content="#{current_page.data.url}")
+  %meta(property="og:description" content="#{current_page.data.description || '제주의 소프트웨어 개발자, 김대현의 개발 블로그'}")
   %link(rel="stylesheet" type="text/css" href="/css/application.css")
   %link(rel="stylesheet" type="text/css" href="/css/highlight/tomorrow.css")
   %link(rel="shortcut icon" href="/img/favicon.png")
   %script(src="/js/application.js" type="text/javascript")
   %script(src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.6/d3.min.js" type="text/javascript")
+  -# %script(src="/js/d3.min.js" type="text/javascript")
 %body
   .container
     .header

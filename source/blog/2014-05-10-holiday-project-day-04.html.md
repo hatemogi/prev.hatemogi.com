@@ -76,7 +76,7 @@ bower install jasmine --save-dev
 
 참고로, 작성하는 예제 프로젝트는
 
-> <https://github.com/hatemogi/karma-practice>
+> <https://github.com/hatemogi/holiday-project>
 
 에 올려놓고 있다. 
 

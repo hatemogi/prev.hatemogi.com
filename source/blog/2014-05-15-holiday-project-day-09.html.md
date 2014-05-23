@@ -59,7 +59,7 @@ jasmine-node --verbose spec
 
 어쨌건 위의 명령어로, 그전까지의 테스트케이스와 함께 돌려 볼 수 없고, 문제없이 실행되는 것을 확인했다. 
 
-혹시, [커피스크립트](http://cofffescript.org)로 작성해보면 조금 보기에 나아질까 하는 궁금증이 일어, 곧바로 작성해봤다. 
+혹시, [커피스크립트](http://coffeescript.org)로 작성해보면 조금 보기에 나아질까 하는 궁금증이 일어, 곧바로 작성해봤다. 
 
 ```coffeescript
 describe '[CoffeeScript] nodegit 저장소', () ->
