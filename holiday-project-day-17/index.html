@@ -85,7 +85,31 @@
       
       <p>최종 빌드 테스트의 성패에 따른 이미지 링크도 있어서, 저장소의 README파일에 링크를 걸어두면, 위와 같이 성공했을 경우, <code>build passing</code>이라는 초록 버튼이 보이게 할 수 있다. 그리고, 해당 이미지 링크에 <code>branch</code> 파라미터를 줘서 특정 Git 브랜치의 최종 커밋에 대한 이미지도 보일 수 있다.</p>
       
-      <p>참고로, <a href="/holiday-project-day-14/">3일 전에 적용해 본 Heroku</a>의 경우, nodegit 모듈을 빌드하다가 실패했는데, Travis CI의 경우 문제없이 모든 모듈이 빌드됐다. native extension을 빌드하다가 에러가 발생했는데, 아마도 Heroku에는 CMake가 준비돼있지 않아서 생겼던 문제로 보인다.</p>
+      <h2>Heroku에 자동배포</h2>
+      
+      <p>빌드 테스트가 성공하면, 스테이징 서버에 자동으로 배포한다면 어떨까? 좀 더 과감한 접근이 가능한 경우라면, 아예, 빌드 테스트 성공후에는 실 서비스 서버에 배포하게 하는 것도 가능하겠다. 더구나 지금처럼 가벼운 개인 프로젝트의 경우, 빌드 테스트 성공 후에는 그때그때 바로 배포하면 매우 편리할 것이다.</p>
+      
+      <p><a href="https://travis-ci.org">Travis CI</a>의 <a href="http://docs.travis-ci.com/user/deployment/heroku/">Heroku Deployment</a>라는 문서에 해당 내용이 친절히 안내돼 있다. 아래의 travis CLI툴로 설정값을 자동으로 추가할 수 있고,</p>
+      
+      <pre><code class="bash">travis setup heroku&#x000A;</code></pre>
+      
+      <p>자동 추가된 <code>.travis.yml</code> 내용을 열어보면 아래와 같다.</p>
+      
+      <pre><code class="yml">deploy:&#x000A;  provider: heroku&#x000A;  api_key:&#x000A;    secure: bbxlxzhB4AedhkiqKVnagzWVWpe+kusUbeYZhRjL1BJfzvGO0zXktzyqNvy6wANSetDgSMQL/wZsPkIcbtDFU1QzsvXxrfmc33TMFARCQ6JJpb+EHD31HluOwA/8nbtsqQsz8UXW+7jKjtuAxpo0ZzLE7KI0ckQRUKIRQAcky+I=&#x000A;  app: holiday-project-staging&#x000A;  on:&#x000A;    repo: hatemogi/holiday-project&#x000A;</code></pre>
+      
+      <p>중간에 <code>api_key</code> 부분이 Heroku에 배포하기 위한 Heroku API 키를 Travis CI만 해석할 수 있게 암호화한 값이다.</p>
+      
+      <p>이렇게 설정을 마치고, GitHub에 새로운 커밋을 push했더니, 문제없이 빌드 테스트를 마쳤고, Heroku에도 자동으로 배포됐다.</p>
+      
+      <p><a href="/holiday-project-day-14/">14일 째</a>, 수동으로 Heroku에 배포한 실서비스(?) 주소는 아래와 같다.</p>
+      
+      <blockquote><p><a href="http://holiday-project.hatemogi.com/">http://holiday-project.hatemogi.com/</a></p></blockquote>
+      
+      <p>그리고, 오늘 Travis CI로 자동 배포된 스테이징 서버 주소는</p>
+      
+      <blockquote><p><a href="http://holiday-project-staging.herokuapp.com/">http://holiday-project-staging.herokuapp.com/</a></p></blockquote>
+      
+      <p>위와 같다. 아직 둘의 차이는 없지만, 개발 과정에서 종종 차이가 있을 것이고, 실서비스 배포 전에, 로컬 테스트와 더불어 스테이징 테스트까지도 아주 편리하게 할 수 있겠다. 그것 참 개발하기 편한 세상이다.</p>
       
       <p>이로써, 그간 살펴보려고 모아두었던 기술 주제들은 대략적으로나마 알아보았다. 내일부터는, 본격(?) 개발 작업에 들어가려 한다.</p>
       
