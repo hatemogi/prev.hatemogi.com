@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head prefix='og: http://ogp.me/ns#'>
+  <meta charset='utf-8'>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <meta content='프로젝트 19일: RequireJS - 비동기(async) JS 로더' property='og:title'>
+  <meta content='website' property='og:type'>
+  <meta content='http://hatemogi.com/img/holiday-project/requirejs-logo.png' property='og:image'>
+  <meta content='http://hatemogi.com/holiday-project-day-19/' property='og:url'>
+  <meta content='자바스크립트 파일을 비동기 방식으로 읽어들이고, 각 파일의 의존도를 따라서 필요한 파일을 먼저 읽어 들일 수 있게 해주는 RequireJS를 알아보고 적용해보았다. ' property='og:description'>
+  <title>프로젝트 19일: RequireJS - 비동기(async) JS 로더</title>
+  <link href='/css/application.css' rel='stylesheet' type='text/css'>
+  <link href='/css/highlight/foundation.css' rel='stylesheet' type='text/css'>
+  <link href='/img/favicon.png' rel='shortcut icon'>
+</head>
+<body>
+  <div class='container'>
+    <div class='header'>
+      <ul class='nav nav-pills pull-right'>
+        <li>
+          <a href='/'>홈</a>
+        </li>
+        <li>
+          <a href='/articles/'>글</a>
+        </li>
+        <li>
+          <a href='/show-your-work/'>작업</a>
+        </li>
+        <li>
+          <a href='/about/'>소개</a>
+        </li>
+      </ul>
+      <h3 class='logo'>hatemogi</h3>
+    </div>
+  </div>
+  <section id='main-content'>
+    <div class='container'>
+      <div class='page-header'>
+        <h1>
+          프로젝트 19일: RequireJS - 비동기(async) JS 로더
+          <small>2014-05-25</small>
+        </h1>
+      </div>
+      <p>개인 프로젝트 19일째, 오늘은 비동기식 자바스크립트 로더, <a href="http://requirejs.org/">RequireJS</a>에 대해 살펴봤다.</p>
+      
+      <p><img src="/img/holiday-project/requirejs-logo.png" style="width: 200px;"/></p>
+      
+      <h2>비동기 모듈 선언 (AMD)</h2>
+      
+      <p>오늘 고생된 작업의 시작은, 오전에 지금까지 진행한 프로젝트 데모 사이트에서, 크롬 브라우저의 <a href="https://chrome.google.com/webstore/detail/pagespeed-insights-by-goo/gplegfbjlmmehdoakndmohflojccocli?hl=ko">PageSpeed</a>를 돌려본 것이 화근이었다.  웹페이지 로딩 속도에 관련한 각종 검사를 하고 개선할 방안을 추천해주는 <a href="https://chrome.google.com/webstore/detail/pagespeed-insights-by-goo/gplegfbjlmmehdoakndmohflojccocli?hl=ko">PageSpeed</a>가 내게 권장하기를,</p>
+      
+      <blockquote><p>자바스크립트 파일들을 비동기식으로 로딩하시죠~!</p></blockquote>
+      
+      <p>라고 하는 게 아닌가?!</p>
+      
+      <p>음, 비동기식 로딩이라&hellip; <code>&lt;body&gt;</code> 태그의 가장 마지막에 자바스크립트 파일들을 로딩하면 되는건가? 아니면, <code>&lt;script&gt;</code> 태그에 <code>async</code> 속성을 주면 되는 건가?</p>
+      
+      <p>조금 찾아보니, <a href="https://en.wikipedia.org/wiki/Asynchronous_module_definition">AMD</a>라고 비동기 모듈 선언(Asynchronous Module Definition)이라는 주제를 찾을 수 있었다.</p>
+      
+      <p><img src="/img/holiday-project/AMD_overview.png" alt="https://en.wikipedia.org/wiki/File:Asynchronous_Module_Definition_overview.png" /></p>
+      
+      <p>쉽게 말해서, 여러 JS 파일들을 하나씩 차례로 읽지 말고, 동시다발적으로 읽자는 얘기고, 그러면 당연히 여러 파일을 전부 다 읽는 데 필요한 시간이 줄어들 수 있다는 얘기다.</p>
+      
+      <p><a href="http://requirejs.org/docs/whyamd.html">이걸 왜 써야 하는지 아주 상세한 문서</a>가 있는데, 상세한 만큼, 내용도 길다.</p>
+      
+      <blockquote><p>그냥 HTML 문서에 <code>&lt;script&gt;</code> 태그 넣으면 되는 것을, 이 장문의 영문을 읽고 해석하고 적용해야 하는 걸까?</p></blockquote>
+      
+      <p>하는 불평이 스멀스멀 올라왔지만, &ldquo;그래 어디 한번 써보기나 합시다"는 마음으로 적용해보기로 했다. AMD를 위한 라이브러리가 꽤 여럿 있는 것 같은데, 그중에서도 가장 눈에 띈 <a href="http://requirejs.org/">RequireJS</a>를 써보기로 했다.</p>
+      
+      <p>일단 아주 긴 문서 길이에 살짝 위축됐고, AngularJS나 Karma와의 궁합이 잘 안 맞을 수 있으니, 자칫하면 취소하려는 마음으로 브랜치부터 땄다. 지금까지의 <code>master</code> 브랜치에서 <code>require.js</code> 브랜치를 땄다.</p>
+      
+      <pre><code class="bash">git checkout -b require.js&#x000A;</code></pre>
+      
+      <h2>RequireJS 적용 시도</h2>
+      
+      <p>문서를 보며 따라 해보니, 기본 개념은 아래 코드가 핵심이었다.</p>
+      
+      <pre><code class="javascript">define('모듈ID', ['필요한모듈1', '필요한모듈2'], function(모듈1, 모듈2) {&#x000A;  // 모듈1, 모듈2를 사용해서 무언가를 하는 코드 &#x000A;});&#x000A;</code></pre>
+      
+      <p>특정 모듈을 <code>define</code> 이라는 함수로 선언한 수 있고, 그 모듈은 <code>필요한모듈1</code>과 <code>필요한모듈2</code>를 필요로 하는 상황이다. 이 모듈을 쓰고자 한다면, RequireJS가 그 모듈들을 로드한 뒤에 이 모듈 선언 함수 부분을 실행한다. 즉, 의존성을 쫓아 로드할 수 있다.</p>
+      
+      <p>비동기로 동시다발적으로 로드하고, 의존성이 있는 경우에는, 그 의존하는 모듈이 로드된 다음에 해당 코드를 실행할 수 있으므로, 로드 순서에 따른 문제도 피할 수 있고, 전체 로딩 시간은 짧아지는 효과를 노리는 것이다.</p>
+      
+      <p>게다가, 선언만 해놓고, 실제로 쓰지 않는다면, 불필요하게 읽지 않으므로, 웹사이트의 전반적인 속도가 빠르게 느껴질 수도 있다. 예를 들어, 웹사이트 일부에 <code>D3.js</code>를 쓰는 경우, 의존성 선언을 해놓고, 필요한 부분에서만 디펜던시를 걸어서 사용하면, 꼭 필요한 경우에만 로딩되게 할 수 있다.</p>
+      
+      <p>개념이며 목표며, 다 좋은데, 실제로 적용해보려니, Karama와 같이 쓰기가 쉽지 않았다. <a href="http://karma-runner.github.io/0.8/plus/RequireJS.html">Karma 사이트에 RequireJS와 함께 쓰는 법을 알려주는 문서</a>가 있었지만, 아직 이해가 부족해서인지 따라해 봐도 쉽게 해결할 수 없었다.</p>
+      
+      <p>한나절 전부를 써서, 결국 간단히 Karma로도 테스트를 수행하고, 웹 브라우저에서도 잘 동작하는 코드를 작성할 수 있었는데, 그래도 아직 뭔가 부족하다. 아직 AngularJS의 컨트롤러 등을 테스트하는 코드를 깔끔하게 작성하지 못한 상태다.</p>
+      
+      <p>AngularJS는 별도 의존성이 없으므로,  차라리 그냥 동기 방식으로 미리 로딩하고, 나머지만 RequireJS에 묶는 게 편할지도 모르겠다. 계속 써볼지 말지 아직은 불투명한 상황. 내일이라도 지금 작업하는 브랜치를 그냥 지워버릴지도&hellip; ㅠ.ㅠ</p>
+      
+      <p>우선, RequireJS를 적용한 브랜치는 아래 주소에 있다.</p>
+      
+      <blockquote><p><a href="https://github.com/hatemogi/holiday-project/tree/require.js">https://github.com/hatemogi/holiday-project/tree/require.js</a></p></blockquote>
+      
+      <p><a href="/holiday-project-day-18">어제</a> 알아본 Grunt로 <code>karma</code> 태스크를 넣어두었다.</p>
+      
+      <pre><code class="bash">grunt karma&#x000A;</code></pre>
+      
+      <p>간신히, 기본적으로 돌아가게는 했으나, 아직 더 자세히 알아보며 써봐야 할 단계다. 이해가 부족하다.</p>
+      
+      <h2>새로운 웹 개발 기술들</h2>
+      
+      <p>무엇 하나 개발하기에도 바쁜 데, 늘 따라가기 힘든 새로운 기술들이 쏟아져 나온다. 하도 많이 나와서, 다 알아보기도 힘들고, 또 대다수는 조금 쓰이다가, 버려지는 것들도 있어서 남들이 많이 쓰기 전까지는 기다리는 것이 현명한 판단일 수도 있다.</p>
+      
+      <p>하지만, 그렇다고 늘 하던 대로만 하면, 나아지는 것이 없다.</p>
+      
+      <p>나름의 내 정체성은 (아직) 웹 개발자인데, 너무 모르고 지나가는 기술들이 많았었나 보다. 이러다가 <strong>실제</strong> 개발작업이 더뎌져서 답답하기도 하다. 그래도, 당장 현업의 개발업무가 있다면, 이렇게 모르는 기술 알아볼 시간도 없이 개발했을텐데, 이번 기회에 여유롭게(?) 이것저것 다양히 알아보고 있으니, 그것참 사치스러운 시간이다.</p>
+      
+      <p>오늘은 여기까지.</p>
+      <div class='page-header'>
+        <h4>
+          30일 프로젝트 글 목록
+        </h4>
+      </div>
+      <blockquote>
+        <ul>
+        <li><a href="/holiday-project-day-01/">(05/07) 프로젝트 1일: 웹 브라우저 JS 테스트 환경 - karma &amp; jasmine</a></li>
+        <li><a href="/holiday-project-day-02/">(05/08) 프로젝트 2일: 서버 측 JS 테스트 환경 - jasmine-node</a></li>
+        <li><a href="/holiday-project-day-03/">(05/09) 프로젝트 3일: express 테스트 환경 - supertest</a></li>
+        <li><a href="/holiday-project-day-04/">(05/10) 프로젝트 4일: 웹 환경 패키지 매니저 - bower</a></li>
+        <li><a href="/holiday-project-day-05/">(05/11) 프로젝트 5일: 문법 하이라이팅 - highlight.js</a></li>
+        <li><a href="/holiday-project-day-06/">(05/12) 프로젝트 6일: 그래프 그리기 - graphviz &amp; D3.js</a></li>
+        <li><a href="/holiday-project-day-07/">(05/13) 프로젝트 7일: graphviz 노드에 웹 링크 걸기</a></li>
+        <li><a href="/holiday-project-day-08/">(05/14) 프로젝트 8일: D3.js 트랜지션(Transitions)</a></li>
+        <li><a href="/holiday-project-day-09/">(05/15) 프로젝트 9일: Node.js로 Git저장소 다루기</a></li>
+        <li><a href="/holiday-project-day-10/">(05/16) 프로젝트 10일: Async.js로 콜백 중첩을 풀기</a></li>
+        <li><a href="/holiday-project-day-11/">(05/17) 프로젝트 11일: Git 커밋 그래프 그리기 도전</a></li>
+        <li><a href="/holiday-project-day-12/">(05/18) 프로젝트 12일: 그래프 그리기 도전 #2</a></li>
+        <li><a href="/holiday-project-day-13/">(05/19) 프로젝트 13일: 컨테이너 기반 가상화 프레임워크 - Docker</a></li>
+        <li><a href="/holiday-project-day-14/">(05/20) 프로젝트 14일: Heroku에 Node.js 애플리케이션 배포</a></li>
+        <li><a href="/holiday-project-day-15/">(05/21) 프로젝트 15일: AngularJS 코드스쿨 강좌 소개</a></li>
+        <li><a href="/holiday-project-day-16/">(05/22) 프로젝트 16일: 중간 점검 - 왜 이 프로젝트를 하나?</a></li>
+        <li><a href="/holiday-project-day-17/">(05/23) 프로젝트 17일: Travis CI - 지속적 통합 서비스</a></li>
+        <li><a href="/holiday-project-day-18/">(05/24) 프로젝트 18일: Grunt - 자바스크립트 작업 실행기</a></li>
+        <li><a href="/holiday-project-day-19/">(05/25) 프로젝트 19일: RequireJS - 비동기(async) JS 로더'</a></li>
+        </ul>
+      </blockquote>
+    </div>
+  </section>
+  <div class='container'>
+    <footer>
+      <div class='pull-right'>
+        &copy; 2012-2014
+        <a href='https://twitter.com/hatemogi'>@hatemogi</a>
+      </div>
+    </footer>
+  </div>
+  <script src='/js/application.js' type='text/javascript'></script>
+</body>
