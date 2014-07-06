@@ -15,5 +15,10 @@
 * [(05/20) 프로젝트 14일: Heroku에 Node.js 애플리케이션 배포](/holiday-project-day-14/)
 * [(05/21) 프로젝트 15일: AngularJS 코드스쿨 강좌 소개](/holiday-project-day-15/)
 * [(05/22) 프로젝트 16일: 중간 점검 - 왜 이 프로젝트를 하나?](/holiday-project-day-16/)
-* [(05/23) 프로젝트 17일: Travis CI, 지속적 통합 서비스](/holiday-project-day-17/)
-
+* [(05/23) 프로젝트 17일: Travis CI - 지속적 통합 서비스](/holiday-project-day-17/)
+* [(05/24) 프로젝트 18일: Grunt - 자바스크립트 작업 실행기](/holiday-project-day-18/)
+* [(05/25) 프로젝트 19일: RequireJS - 비동기(async) JS 로더'](/holiday-project-day-19/)
+* [(05/26) 프로젝트 20일: 회사의 합병 소식](/holiday-project-day-20/)
+* [(05/29) 프로젝트 21일: AngularJS 컨트롤러 테스트 코드](/holiday-project-day-21/)
+* [(05/31) 프로젝트 22일: Promise와 Async.js로 작성해본 콜백 코드 비교](/holiday-project-day-22/)
+* [(06/08) 프로젝트 마지막날: 결과물 미리보기](/holiday-project-last-day/)
